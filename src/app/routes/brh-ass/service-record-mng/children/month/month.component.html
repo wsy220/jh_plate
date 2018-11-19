@@ -1,0 +1,505 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style m="text/css">
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 12pt;
+    }
+
+    .s2 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+
+    .s5 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 10.5pt;
+    }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.304pt" cellspacing="0">
+    <tr style="height:13pt;">
+      <td style="width:140pt;" colspan="2"><p class="s2" style="text-align: center;">月 龄</p></td>
+      <td style="width:500pt;text-align: center;">
+        <p class="s2" style="text-align: center;" *ngIf="m===1">满 月</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===3">3月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===6">6月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===8">8月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===12">12月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===18">18月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===24">24月龄</p>
+        <p class="s2" style="text-align: center;" *ngIf="m===30">30月龄</p>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td
+        style="width:96pt;"
+        colspan="2"><p class="s2" style="text-align: center;">体 重/kg</p></td>
+      <td style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.tizhong" name="tizhong"/>
+        <nz-radio-group [(ngModel)]="i.tizhongjibie" name="tizhongjibie">
+          <label nz-radio nzValue="上">上</label>
+          <label nz-radio nzValue="中">中</label>
+          <label nz-radio nzValue="下">下</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2"><p class="s2" style="text-align: center;">身 长/cm</p>
+      </td>
+      <td style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.shenchang" name="shenchang"/>
+        <nz-radio-group [(ngModel)]="i.shenchangjibie" name="shenchangjibie">
+          <label nz-radio nzValue="上">上</label>
+          <label nz-radio nzValue="中">中</label>
+          <label nz-radio nzValue="下">下</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">头 围/cm</p>
+      </td>
+      <td style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.touwei" name="touwei"/>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:21pt;" rowspan="16" *ngIf="m<12">
+        <p class="s2" style="padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;line-height: 110%;text-align: justify;">体 格 检 查</p>
+      </td>
+      <td style="width:21pt;" rowspan="13" *ngIf="m>8">
+        <p class="s2" style="padding-left: 5pt;padding-right: 6pt;text-indent: 0pt;line-height: 110%;text-align: justify;">体 格 检 查</p>
+      </td>
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">面 色</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.mianse" name="mianse" *ngIf="m===1||m===3">
+          <label nz-radio nzValue="红润">红润</label>
+          <label nz-radio nzValue="黄染">黄染</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.mianse" name="mianse" *ngIf="m===6||m>=8">
+          <label nz-radio nzValue="红润">红润</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">皮 肤</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.pifu" name="pifu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:26pt">
+      <td
+        style="width:75pt;">
+        <p class="s2" style="text-align: center;">前 囟</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.qianxin" name="qianxin">
+          <label nz-radio nzValue="闭合">闭合</label>
+          <label nz-radio nzValue="未闭">未闭</label>
+        </nz-radio-group>
+        <input style="width:26pt;" [(ngModel)]="i.qianxin_chicun1" name="qianxin_chicun1"/>cm×
+        <input style="width:26pt;" [(ngModel)]="i.qianxin_chicun2" name="qianxin_chicun2"/>cm
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m<12">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">颈部包块</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.jingbubaokuai" name="jingbubaokuai" *ngIf="m===1||m===3||m===6">
+          <label nz-radio nzValue="有">有</label>
+          <label nz-radio nzValue="无">无</label>
+        </nz-radio-group>
+        <p class="s5" style="text-align: center;" *ngIf="m===8">——</p>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">眼 睛</p></td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.yanjing" name="yanjing">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-indent: 0pt;text-align: center;">耳</p></td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.er" name="er">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">听 力</p></td>
+      <td style="width:86pt;">
+        <p class="s5" style="text-align: center;" *ngIf="m===1||m===3||m===8||m===18||m===30">——</p>
+        <nz-radio-group [(ngModel)]="i.tingli" name="tingli" *ngIf="m===6||m===12||m===24">
+          <label nz-radio nzValue="通过">通过</label>
+          <label nz-radio nzValue="未通过">未通过</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m>8">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">出牙/龋齿数（颗）</p></td>
+      <td style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.chuyashu" name="chuyashu"/>/
+        <input style="width:26pt;" [(ngModel)]="i.quchishu" name="quchishu"/>颗
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m<9">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">口 腔</p></td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.kouqiang" name="kouqiang" *ngIf="m===1||m===3">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+        <input style="width:26pt;" [(ngModel)]="i.chuyashu" name="chuyashu" *ngIf="m===6||m===8"/>颗
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td
+        style="width:75pt;">
+        <p class="s2" style="text-align: center;">胸 部</p>
+      </td>
+      <td
+        style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.xiongbu" name="xiongbu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td
+        style="width:75pt;">
+        <p class="s2" style="text-align: center;">腹 部</p></td>
+      <td
+        style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.fubu" name="fubu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m<12">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">脐 部</p></td>
+      <td
+        style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.qibu" name="qibu" *ngIf="m===1">
+          <label nz-radio nzValue="未脱">未脱</label>
+          <label nz-radio nzValue="脱落">脱落</label>
+          <label nz-radio nzValue="脐部有渗出">脐部有渗出</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.qibu" name="qibu" *ngIf="m==='m2'">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+        <p class="s5" style="text-align: center;" *ngIf="m===6||m===8">——</p>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">四 肢</p></td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.sizhi" name="sizhi">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m>8">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">步态</p>
+      </td>
+      <td style="width:86pt;" *ngIf="m===12">
+        <p class="s5" style="text-align: center;">——</p>
+      </td>
+      <td style="width:86pt;" *ngIf="m>12">
+        <nz-radio-group [(ngModel)]="i.butai" name="butai">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m<12">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">可疑佝偻病症状</p></td>
+      <td style="width:86pt;" *ngIf="m===1">
+        <p class="s5" style="text-align: center;">——</p>
+      </td>
+      <td style="width:86pt;" *ngIf="m===3||m===6">
+        <nz-radio-group [(ngModel)]="i.gouloubingzhengzhuang" name="gouloubingzhengzhuang">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="夜惊">夜惊</label>
+          <label nz-radio nzValue="多汗">多汗</label>
+          <label nz-radio nzValue="烦躁">烦躁</label>
+        </nz-radio-group>
+      </td>
+      <td style="width:86pt;" *ngIf="m===8">
+        <nz-radio-group [(ngModel)]="i.gouloubingzhengzhuang" name="gouloubingzhengzhuang" *ngIf="m===8">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="夜惊">夜惊</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">可疑佝偻病体征</p></td>
+      <td style="width:86pt;">
+        <p class="s5" style="text-align: center;" *ngIf="m===1||m===30">——</p>
+        <nz-radio-group [(ngModel)]="i.gouloubingtizheng" name="gouloubingtizheng" *ngIf="m===3">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="颅骨软化">颅骨软化</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.gouloubingtizheng" name="gouloubingtizheng" *ngIf="m===6||m===8">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="肋串珠">肋串珠</label>
+          <label nz-radio nzValue="肋软骨沟">肋软骨沟</label>
+          <label nz-radio nzValue="鸡胸">鸡胸</label>
+          <label nz-radio nzValue="手足镯">手足镯</label>
+          <label nz-radio nzValue="颅骨软化">颅骨软化</label>
+          <label nz-radio nzValue="方颅">方颅</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.gouloubingtizheng" name="gouloubingtizheng" *ngIf="m===12||m===18||m===24">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="肋串珠">肋串珠</label>
+          <label nz-radio nzValue="肋软骨沟">肋软骨沟</label>
+          <label nz-radio nzValue="鸡胸">鸡胸</label>
+          <label nz-radio nzValue="手足镯">手足镯</label>
+          <label nz-radio nzValue="O型腿">O型腿</label>
+          <label nz-radio nzValue="X">X型腿</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt" *ngIf="m<12">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">肛门/外生殖器</p></td>
+      <td
+        style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.gangmen_waishengzhiqi" name="gangmen_waishengzhiqi">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:75pt;">
+        <p class="s2" style="text-align: center;">血红蛋白值</p></td>
+      <td style="width:86pt;" *ngIf="m===1||m===3||m===12||m===24">
+        <p class="s5" style="text-align: center;">——</p>
+      </td>
+      <td style="width:86pt;" *ngIf="m===6||m===18||m===30">
+        <input style="width:26pt;" [(ngModel)]="i.xuehongdanbai" name="xuehongdanbai"/>g/L
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2"><p class="s2" style="text-align: center;">户外活动</p></td>
+      <td
+        style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.huwaihuodong" name="huwaihuodong"/>小时/日
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2"><p class="s2" style="text-align: center;">服用维生素 D</p></td>
+      <td
+        style="width:86pt;">
+        <input style="width:26pt;" [(ngModel)]="i.weishengsu" name="weishengsu"/>IU/日
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">发育评估</p></td>
+      <td
+        style="width:86pt;">
+        <p class="s2" style="padding-left: 24pt;text-indent: 0pt;text-align: left;" *ngIf="m===1">--------</p>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===3">
+          <label nz-radio nzValue="对很大声音没有反应">对很大声音没有反应</label>
+          <label nz-radio nzValue="逗引时不发音或不会微笑">逗引时不发音或不会微笑</label>
+          <label nz-radio nzValue="不注视人脸，不追视移动人或物品">不注视人脸，不追视 移动人或物品</label>
+          <label nz-radio nzValue="俯卧时不会抬头">俯卧时不会抬头</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===6">
+          <label nz-radio nzValue="发音少，不会笑出 声">发音少，不会笑出 声</label>
+          <label nz-radio nzValue="不会伸手抓物">不会伸手抓物</label>
+          <label nz-radio nzValue="紧握拳松不开">紧握拳松不开</label>
+          <label nz-radio nzValue="不能扶坐">不能扶坐</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===8">
+          <label nz-radio nzValue="听到声音无应答">听到声音无应答</label>
+          <label nz-radio nzValue="不会区分生人和熟人">不会区分生人和熟人</label>
+          <label nz-radio nzValue="双手间不会传递玩具">双手间不会传递玩具</label>
+          <label nz-radio nzValue="不会独坐">不会独坐</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===12">
+          <label nz-radio nzValue="呼唤名字无反应">呼唤名字无反应</label>
+          <label nz-radio nzValue="不会模仿再见或欢迎动作">不会模仿再见或欢迎动作</label>
+          <label nz-radio nzValue="不会用拇食指对捏 小物品">不会用拇食指对捏小物品</label>
+          <label nz-radio nzValue="不会扶物站立">不会扶物站立</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===18">
+          <label nz-radio nzValue="不会有意识叫爸爸或妈妈">不会有意识叫爸爸或妈妈</label>
+          <label nz-radio nzValue="不会按要求指认或物">不会按要求指认或物</label>
+          <label nz-radio nzValue="与人无目光交流">与人无目光交流</label>
+          <label nz-radio nzValue="不会独走">不会独走</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===24">
+          <label nz-radio nzValue="不会说3个物品的名称">不会说3个物品的名称</label>
+          <label nz-radio nzValue="不会按照吩咐做简单的事情">不会按照吩咐做简单的事情</label>
+          <label nz-radio nzValue="不会用勺吃饭">不会用勺吃饭</label>
+          <label nz-radio nzValue="不会扶栏上楼梯/台阶">不会扶栏上楼梯/台阶</label>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="i.fayupinggu" name="fayupinggu" *ngIf="m===30">
+          <label nz-radio nzValue="不会说2-3个字短语">不会说2-3个字短语</label>
+          <label nz-radio nzValue="兴趣单一、刻板">兴趣单一、刻板</label>
+          <label nz-radio nzValue="不会示意大小便">不会示意大小便</label>
+          <label nz-radio nzValue="不会跑">不会跑</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2"><p class="s2" style="text-align: center;">体格发育评价</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-radio-group [(ngModel)]="i.tigefayu" name="tigefayu">
+          <label nz-radio nzValue="正常">正常</label>
+          <label nz-radio nzValue="低体重">低体重</label>
+          <label nz-radio nzValue="消瘦">消瘦</label>
+          <label nz-radio nzValue="生长迟缓">生长迟缓</label>
+          <label nz-radio nzValue="超重">超重</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">两次随访间患病情况</p></td>
+      <td style="width:86pt;">
+        <label nz-checkbox nzValue="无" [(ngModel)]="i.suifangjianwu" name="suifangjianwu">无</label>
+        <label nz-checkbox nzValue="肺炎" [(ngModel)]="i.suifangjianfeiyan" name="suifangjianfeiyan">肺炎</label>
+        <input style="width:26pt;" [(ngModel)]="i.feiyancishu" name="feiyancishu"/>次
+        <label nz-checkbox nzValue="腹泻" [(ngModel)]="i.suifangjianfuxie" name="suifangjianfuxie">腹泻</label>
+        <input style="width:26pt;" [(ngModel)]="i.fuxiecishu" name="fuxiecishu"/>次
+        <label nz-checkbox nzValue="外伤" [(ngModel)]="i.suifangjianwaishang" name="suifangjianwaishang">外伤</label>
+        <input style="width:26pt;" [(ngModel)]="i.waishangcishu" name="waishangcishu"/>次
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.suifangjianqita" name="suifangjianqita">其他</label>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">转诊建议</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.zhuanzhenjianyi" name="zhuanzhenjianyi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        原因：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenyuanyin" name="zhuanzhenyuanyin"/>
+        机构及科室：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenjigou" name="zhuanzhenjigou"/>
+      </td>
+    </tr>
+    <tr style="height:13pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">指 导</p></td>
+      <td style="width:86pt;">
+        <label nz-checkbox nzValue="科学喂养" [(ngModel)]="i.kexueweiyang" name="kexueweiyang">科学喂养</label>
+        <label nz-checkbox nzValue="生长发育" [(ngModel)]="i.shengzhangfayu" name="shengzhangfayu">生长发育</label>
+        <label nz-checkbox nzValue="疾病预防" [(ngModel)]="i.jibingyufang" name="jibingyufang">疾病预防</label>
+        <label nz-checkbox nzValue="预防伤害" [(ngModel)]="i.yufangshanghai" name="yufangshanghai">预防伤害</label>
+        <label nz-checkbox nzValue="口腔保健" [(ngModel)]="i.kouqiangbaojian" name="kouqiangbaojian">口腔保健</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.zhidaoqita" name="zhidaoqita">其他</label>
+        <!--<nz-radio-group [(ngModel)]="i.zhidao" name="zhidao">-->
+          <!--<label nz-radio nzValue="科学喂养">科学喂养</label>-->
+          <!--<label nz-radio nzValue="生长发育">生长发育</label>-->
+          <!--<label nz-radio nzValue="疾病预防">疾病预防</label>-->
+          <!--<label nz-radio nzValue="预防伤害">预防伤害</label>-->
+          <!--<label nz-radio nzValue="口腔保健">口腔保健</label>-->
+          <!--<label nz-radio nzValue="其他">其他</label>-->
+        <!--</nz-radio-group>-->
+      </td>
+    </tr>
+    <tr style="height:15pt">
+      <td style="width:96pt;" colspan="2">
+        <p class="s2" style="text-align: center;">下次随访日期</p>
+      </td>
+      <td style="width:86pt;">
+        <nz-date-picker [(ngModel)]="i.xiacisuifangriqi" name="xiacisuifangriqi" [nzFormat]="dateFormat"></nz-date-picker>
+      </td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button type="button" nz-button m="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+  </div>
+</form>
+</body>
+</html>

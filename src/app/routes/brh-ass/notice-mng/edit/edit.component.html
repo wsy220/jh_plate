@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}通知</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="4">标题</nz-form-label>
+    <nz-form-control nzSpan="8">
+      <input nz-input [(ngModel)]="i.name" name="name" maxlength="30" required/>
+    </nz-form-control>
+    <nz-form-label nzSpan="4">位置排序</nz-form-label>
+    <nz-form-control nzSpan="8">
+      <nz-input-number [(ngModel)]="i.indexnumber" name="indexnumber" [nzMin]="0" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm" *ngIf="root">
+    <nz-form-label nzSpan="4">可见用户</nz-form-label>
+    <nz-form-control nzSpan="8">
+      <nz-select [(ngModel)]="i.userTarget" name="userTarget" required [nzAllowClear]="false">
+        <nz-option *ngFor="let i of userTargets" [nzLabel]="i.label" [nzValue]="i.value">
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+    <div *ngIf="i.userTarget==='region'">
+      <nz-form-label nzSpan="4">选择城市</nz-form-label>
+      <nz-form-control nzSpan="8">
+        <nz-select [(ngModel)]="i.cityCode" name="cityCode" required [nzAllowClear]="false">
+          <nz-option *ngFor="let city of citys" [nzLabel]="city.cityName" [nzValue]="city.cityCode" (click)="setCityName(city.cityName)">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </div>
+    <div *ngIf="i.userTarget==='hospital'">
+      <nz-form-label nzSpan="4">选择医院</nz-form-label>
+      <nz-form-control nzSpan="8">
+        <nz-select [(ngModel)]="i.hid" name="hid" required [nzAllowClear]="false">
+          <nz-option *ngFor="let hospital of hospitals" [nzLabel]="hospital.name" [nzValue]="hospital._id">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </div>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="4">内容介绍</nz-form-label>
+    <nz-form-control nzSpan="20">
+      <textarea nz-input [(ngModel)]="i.introduction" name="introduction" [nzAutosize]="{minRows: 2}" placeholder="请输入内容介绍"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <!--<ueditor [(ngModel)]="i.content"-->
+    <!--name="content"-->
+    <!--[config]="{ serverUrl: '/api/uploadCkImg' }"-->
+    <!--[loadingTip]="'加载中……'">-->
+    <!--</ueditor>-->
+    <nz-form-label nzSpan="4">通知内容</nz-form-label>
+    <nz-form-control nzSpan="20">
+      <ckeditor height="100" [(ngModel)]="i.content" [config]="config" id="content" name="content" debounce="500"></ckeditor>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+  </div>
+</form>

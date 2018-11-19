@@ -1,0 +1,53 @@
+<form nz-form [nzLayout]="'vertical'">
+  <div>
+    <nz-row nzGutter="8">
+      <nz-col nzLg="12" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>文档名称</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="item.name" name="name" maxlength="20"
+                   placeholder="文档名称"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzLg="12" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>文档序号</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="item.times" name="times" maxlength="20"
+                   placeholder="文档序号"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzLg="12" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>文档类型</nz-form-label>
+          <nz-form-control>
+            <nz-select [(ngModel)]="item.type" [nzShowSearch]="true" name="type" [nzPlaceHolder]="'请选择文档类型'">
+              <nz-option [nzLabel]="'孕期'" [nzValue]="'yc'"></nz-option>
+              <nz-option [nzLabel]="'孕检'" [nzValue]="'cc'"></nz-option>
+              <nz-option [nzLabel]="'育儿'" [nzValue]="'ye'"></nz-option>
+              <nz-option [nzLabel]="'疫苗'" [nzValue]="'ym'"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <!--<nz-col nzLg="12" nzMd="12" nzSm="24">-->
+        <!--<nz-form-item>-->
+          <!--<nz-form-label nzRequired>商品名称</nz-form-label>-->
+          <!--<nz-form-control>-->
+            <!--<input nz-input [(ngModel)]="item.spname" name="phone" maxlength="20" required-->
+                   <!--placeholder="请输入商品名称"/>-->
+          <!--</nz-form-control>-->
+        <!--</nz-form-item>-->
+      <!--</nz-col>-->
+
+      <nz-divider nzDashed></nz-divider>
+      <nz-form-label nzSpan="24" nzRequired>内容</nz-form-label>
+      <nz-form-control nzSpan="24">
+        <ckeditor height="100" [(ngModel)]="item.content" [config]="config" id="content" name="content"
+                  debounce="500"></ckeditor>
+      </nz-form-control>
+    </nz-row>
+  </div>
+</form>

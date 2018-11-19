@@ -1,0 +1,52 @@
+<page-header [title]="''"></page-header>
+<nz-card [nzBordered]="false">
+  <form nz-form [nzLayout]="'inline'" (ngSubmit)="getData()" class="search__form" style="margin-bottom: 0px;">
+    <nz-row [nzGutter]="{ md: 8, lg: 24, xl: 48 }">
+      <nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px; margin-right: 16px;">
+          <nz-form-label nzFor="_id">居民姓名</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="args.realname" name="_id" placeholder="请输入居民姓名" id="_id">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px; margin-right: 16px;">
+          <nz-form-label nzFor="name">居民手机号</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="args.tel" name="name" placeholder="请输入居民手机号" id="name">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+
+      <nz-col [nzSpan]="expandForm ? 24 : 8" [class.text-right]="expandForm"
+              style="margin-bottom: 10px;margin-top: 10px;">
+        <button nz-button type="submit" [nzType]="'primary'">查询</button>
+      </nz-col>
+    </nz-row>
+  </form>
+</nz-card>
+<nz-card [nzBordered]="false">
+  <div nz-row>
+    <button nz-button (click)="expExcel()" [nzType]="'primary'">
+      <span>导出Excel</span>
+    </button>
+    <ng-container *ngIf="selectedRows.length > 0">
+      <nz-dropdown [nzPlacement]="'bottomLeft'">
+        <button nz-button nz-dropdown class="ml-sm">
+          更多操作
+          <i class="anticon anticon-down"></i>
+        </button>
+        <ul nz-menu>
+          <li nz-menu-item (click)="remove()">删除</li>
+        </ul>
+      </nz-dropdown>
+    </ng-container>
+  </div>
+  <nz-divider class="mb-lg"></nz-divider>
+
+  <st #st [data]="url" [req]="{params: args,method:'post',reName:{pi:'page',ps:'rows'},allInBody:true}"
+      [res]="{reName:{list: 'rows',total:'records'}}"
+      [columns]="columns"></st>
+
+</nz-card>

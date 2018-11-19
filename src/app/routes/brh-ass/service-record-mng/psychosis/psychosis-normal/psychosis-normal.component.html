@@ -1,0 +1,703 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style type="text/css"> * {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+  }
+
+  p {
+    color: black;
+    font-family: "Microsoft JhengHei", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12pt;
+    margin: 0pt;
+  }
+
+  .h2 {
+    color: black;
+    font-family: "Times New Roman", serif;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12pt;
+  }
+
+  h1 {
+    color: black;
+    font-family: 宋体;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14pt;
+  }
+
+  .s1 {
+    color: black;
+    font-family: 宋体;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 10.5pt;
+  }
+
+  .s2 {
+    color: black;
+    font-family: "Times New Roman", serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 10.5pt;
+  }
+
+  .s3 {
+    color: black;
+    font-family: "Times New Roman", serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 9pt;
+  }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+<!--<p style="padding-left: 40pt;text-indent: 0pt;line-height: 18pt;text-align: left;">附件 <span class="h2">2</span>
+</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<h1 style="padding-left: 40pt;text-indent: 0pt;text-align: left;">严重精神障碍患者随访服务记录表</h1>
+<p style="padding-left: 40pt;text-indent: 0pt;line-height: 17pt;text-align: left;">姓 名： 编号□□□－□□□□□</p>-->
+<table style="border-collapse:collapse;margin-left:5.24pt" cellspacing="0"  width="98%">
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"><p class="s1"
+                                                                               style="padding-left: 29pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      随访日期</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="text-indent: 0pt;line-height: 13pt;text-align: center;"><nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.suifangriqi" name="suifangriqi" ></nz-date-picker></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;line-height: 14pt;text-align: left;">本次随访形式</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.bencisuifangxingshi"  name="bencisuifangxingshi">
+        <label nz-radio  nzValue="门诊">门诊</label>
+        <label nz-radio  nzValue="家庭访视">家庭访视</label>
+        <label nz-radio  nzValue="电话">电话</label>
+      </nz-radio-group>
+    </p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td  style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;line-height: 14pt;text-align: left;">若失访，原因</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.shifangyuanyin"  name="shifangyuanyin">
+        <label nz-radio  nzValue="外出打工">外出打工</label>
+        <label nz-radio  nzValue="迁居他处">迁居他处</label>
+        <label nz-radio  nzValue="走失">走失</label>
+        <label nz-radio  nzValue="次未到访">次未到访</label>
+        <label nz-radio  nzValue="其他">其他</label>
+      </nz-radio-group>
+    </p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      rowspan="2"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">如死亡，日期和原因</p></td>
+    <td
+      style="width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">死亡日期</p></td>
+    <td
+      style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="5"><p class="s1" style="padding-left: 91pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.shiwangriqi" name="shiwangriqi" ></nz-date-picker></p></td>
+  </tr>
+  <tr style="height:57pt">
+    <td
+      style="width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;text-align: left;">死亡原因</p></td>
+    <td
+      style="width:299pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="5"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"></p>
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
+        <label nz-checkbox nzValue="传染病和寄生虫病" [(ngModel)]="i.chuanranbinghejishengchongbing"  name="chuanranbinghejishengchongbing">传染病和寄生虫病</label>
+        <label nz-checkbox nzValue="肿瘤"   [(ngModel)]="i.zhongliu"  name="zhongliu">肿瘤</label>
+        <label nz-checkbox nzValue="心脏病"   [(ngModel)]="i.xinzangbing"  name="xinzangbing">心脏病</label>
+        <label nz-checkbox nzValue="脑血管病"   [(ngModel)]="i.naoxueguanbing" name="naoxueguanbing" >脑血管病</label>
+        <label nz-checkbox nzValue="呼吸系统疾病"   [(ngModel)]="i.huxixitongjibing" name="huxixitongjibing" >呼吸系统疾病</label>
+        <label nz-checkbox nzValue="消化系统疾病"   [(ngModel)]="i.xiaohuaxitongjibing" name="xiaohuaxitongjibing" >消化系统疾病</label>
+        <label nz-checkbox nzValue="其他疾病"   [(ngModel)]="i.qitajibing" name="qitajibing" >其他疾病</label>
+        <label nz-checkbox nzValue="不详"   [(ngModel)]="i.buxiang" name="buxiang" >不详</label>
+      </p>
+      <p class="s1" style="padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;text-align: left;">
+        <nz-radio-group  [(ngModel)]="i.siwangyuanyin"  name="siwangyuanyin">
+          <label nz-radio  nzValue="躯体疾病">躯体疾病</label>
+          <label nz-radio  nzValue="自杀">自杀</label>
+          <label nz-radio  nzValue="他杀">他杀</label>
+          <label nz-radio  nzValue="意外">意外</label>
+          <label nz-radio  nzValue="精神疾病相关并发症">精神疾病相关并发症</label>
+          <label nz-radio  nzValue="其他">其他</label>
+        </nz-radio-group>
+
+      </p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"><p class="s1"
+                                                                               style="padding-left: 23pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      危险性评估</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.weixianxingpinggu"  name="weixianxingpinggu">
+        <label nz-radio  nzValue="0 级">0 级</label>
+        <label nz-radio  nzValue="1 级">1 级</label>
+        <label nz-radio  nzValue="2 级">2 级</label>
+        <label nz-radio  nzValue="3 级">3 级</label>
+        <label nz-radio  nzValue="4 级">4 级</label>
+        <label nz-radio  nzValue="5 级">5 级</label>
+      </nz-radio-group>
+    </p></td>
+  </tr>
+  <tr style="height:43pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">目前症状</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"></p>
+      <p>
+        <label nz-checkbox nzValue="幻觉" [(ngModel)]="i.huanjue"  name="huanjue">幻觉</label>
+        <label nz-checkbox nzValue="交流困难"   [(ngModel)]="i.jiaoliukunnan"  name="jiaoliukunnan">交流困难</label>
+        <label nz-checkbox nzValue="猜疑"   [(ngModel)]="i.caiyi"  name="caiyi">猜疑</label>
+        <label nz-checkbox nzValue="喜怒无常"   [(ngModel)]="i.xinuwuchang" name="xinuwuchang" >喜怒无常</label>
+        <label nz-checkbox nzValue="行为怪异"   [(ngModel)]="i.xingweiguaiyi" name="xingweiguaiyi" >行为怪异</label>
+        <label nz-checkbox nzValue="兴奋话多"   [(ngModel)]="i.xingfenhuaduo" name="xingfenhuaduo" >兴奋话多</label>
+        <label nz-checkbox nzValue="伤人毁物"   [(ngModel)]="i.shangrenhuiwu" name="shangrenhuiwu" >伤人毁物</label>
+        <label nz-checkbox nzValue="悲观厌世"   [(ngModel)]="i.beiguanyanshi" name="beiguanyanshi" >悲观厌世</label>
+        <label nz-checkbox nzValue="无故外走"   [(ngModel)]="i.wuguwaizou" name="wuguwaizou" >无故外走</label>
+        <label nz-checkbox nzValue="自语自笑"   [(ngModel)]="i.ziyuzixiao" name="ziyuzixiao" >自语自笑</label>
+        <label nz-checkbox nzValue="孤僻懒散"   [(ngModel)]="i.gupilansan" name="gupilansan" >孤僻懒散</label>
+        <label nz-checkbox nzValue="其他"   [(ngModel)]="i.qita" name="qita" >其他</label>
+      </p>
+    </td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="text-indent: 0pt;line-height: 14pt;text-align: center;">自知力</p></td>
+    <td
+      style="width:249pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="4"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.zishili"  name="zizhili">
+        <label nz-radio  nzValue="自知力完全">自知力完全</label>
+        <label nz-radio  nzValue="自知力不全">自知力不全</label>
+        <label nz-radio  nzValue="自知力缺失">自知力缺失</label>
+      </nz-radio-group>
+    </p>
+    </td>
+    <td  style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+
+    </td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;line-height: 14pt;text-align: left;">睡眠情况</p></td>
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.shuimianqingkuang"  name="shuimianqingkuang">
+        <label nz-radio  nzValue="良好">良好</label>
+        <label nz-radio  nzValue="一般">一般</label>
+        <label nz-radio  nzValue="较差">较差</label>
+      </nz-radio-group>
+
+    </p></td>
+    <td
+      style="width:7pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;line-height: 14pt;text-align: left;">饮食情况</p></td>
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.yinshiqingkuang"  name="yinshiqingkuang">
+        <label nz-radio  nzValue="良好">良好</label>
+        <label nz-radio  nzValue="一般">一般</label>
+        <label nz-radio  nzValue="较差">较差</label>
+      </nz-radio-group>
+
+    </p></td>
+    <td
+      style="width:7pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      rowspan="5"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;text-align: left;">社会功能情况</p></td>
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">个人生活料理</p></td>
+    <td
+      style="width:156pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.gerenshenghuoliaoli"  name="gerenshenghuoliaoli">
+      <label nz-radio  nzValue="良好">良好</label>
+      <label nz-radio  nzValue="一般">一般</label>
+      <label nz-radio  nzValue="较差">较差</label>
+    </nz-radio-group></p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">家务劳动</p></td>
+    <td
+      style="width:156pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.jiawulaodong"  name="jiawulaodong">
+      <label nz-radio  nzValue="良好">良好</label>
+      <label nz-radio  nzValue="一般">一般</label>
+      <label nz-radio  nzValue="较差">较差</label>
+    </nz-radio-group></p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">生产劳动及工作</p></td>
+    <td
+      style="width:262pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="5"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.shengchanlaodongjigongzuo"  name="shengchanlaodongjigongzuo">
+      <label nz-radio  nzValue="良好">良好</label>
+      <label nz-radio  nzValue="一般">一般</label>
+      <label nz-radio  nzValue="较差">较差</label>
+    </nz-radio-group></p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">学习能力</p></td>
+    <td
+      style="width:156pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.xuexinengli"  name="xuexinengli">
+      <label nz-radio  nzValue="良好">良好</label>
+      <label nz-radio  nzValue="一般">一般</label>
+      <label nz-radio  nzValue="较差">较差</label>
+    </nz-radio-group></p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">社会人际交往</p></td>
+    <td
+      style="width:156pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.shehuirenjijiaowang"  name="shehuirenjijiaowang">
+      <label nz-radio  nzValue="良好">良好</label>
+      <label nz-radio  nzValue="一般">一般</label>
+      <label nz-radio  nzValue="较差">较差</label>
+    </nz-radio-group></p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:29pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-top: 5pt;padding-left: 29pt;text-indent: 0pt;text-align: left;">危险行为</p></td>
+    <td   style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6">
+      <p class="s1" style="padding-top: 3pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
+        轻度滋事
+        <input nz-input [(ngModel)]="i.qingduzishicishu" name="qingduzishicishu"  nzSize="small"  style="width: 8%;" />
+        次        肇事<input nz-input [(ngModel)]="i.zhaoshicishu" name="zhaoshicishu"  nzSize="small"  style="width: 8%;" />次
+      </p>
+      <p class="s1" style="padding-top: 6pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
+        肇祸<input nz-input [(ngModel)]="i.zhaohuocishu" name="zhaohuocishu"  nzSize="small"  style="width: 8%;" />次
+        其他危害行为<input nz-input [(ngModel)]="i.qitaweihaixingweicishu" name="qitaweihaixingweicishu"  nzSize="small"  style="width: 8%;" />次
+      </p>
+      <p class="s1" style="padding-top: 6pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
+        自伤<input nz-input [(ngModel)]="i.zishangcishu" name="zishangcishu"  nzSize="small"  style="width: 8%;" />次
+        自杀未遂<input nz-input [(ngModel)]="i.zishaweisuicishu" name="zishaweisuicishu"  nzSize="small"  style="width: 8%;" />次
+      </p>
+    </td>
+  </tr>
+  <tr style="height:28pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="text-indent: 0pt;line-height: 12pt;text-align: center;">两次随访期间</p>
+      <p class="s1" style="text-indent: 0pt;line-height: 14pt;text-align: center;">关锁情况</p></td>
+    <td
+      style="width:165pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-top: 7pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.guansuoqingkuang"  name="guansuoqingkuang">
+        <label nz-radio  nzValue="无关锁">无关锁</label>
+        <label nz-radio  nzValue="关锁">关锁</label>
+        <label nz-radio  nzValue="关锁已解除">关锁已解除</label>
+      </nz-radio-group>
+
+    </p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-top: 7pt;padding-right: 5pt;text-indent: 0pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:28pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="text-indent: 0pt;line-height: 12pt;text-align: center;">两次随访期间</p>
+      <p class="s1" style="text-indent: 0pt;line-height: 14pt;text-align: center;">住院情况</p></td>
+    <td
+      style="width:249pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="4"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.zhuyuanqingkuang"  name="zhuyuanqingkuang">
+        <label nz-radio  nzValue="未住院">未住院</label>
+        <label nz-radio  nzValue="目前正在住院">目前正在住院</label>
+        <label nz-radio  nzValue="曾住院，现未住院">曾住院，现未住院</label>
+      </nz-radio-group>
+    </p>
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">末次出院时间 <nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.mocichuyuanshijian" name="mocichuyuanshijian" ></nz-date-picker></p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-top: 7pt;padding-right: 5pt;text-indent: 0pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 23pt;text-indent: 0pt;line-height: 14pt;text-align: left;">实验室检查</p></td>
+    <td
+      style="width:93pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+      <p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+        <nz-radio-group  [(ngModel)]="i.shiyanshijiancha"  name="shiyanshijiancha">
+          <label nz-radio  nzValue="无">无</label>
+          <label nz-radio  nzValue="有">有</label>
+        </nz-radio-group>
+      </p></td>
+    <td
+      style="width:65pt;border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:7pt;border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td style="width:101pt;border-right-style:solid;border-right-width:1pt"><p class="s1"
+                                                                               style="padding-left: 23pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      用药依从性</p></td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.yongyaoyicongxing"  name="yongyaoyicongxing">
+        <label nz-radio  nzValue="按医嘱规律用药">按医嘱规律用药</label>
+        <label nz-radio  nzValue="间断用药">间断用药</label>
+        <label nz-radio  nzValue="不用药">不用药</label>
+        <label nz-radio  nzValue="医嘱勿需用药">医嘱勿需用药</label>
+      </nz-radio-group>
+
+    </p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物不良反应</p></td>
+    <td
+      style="width:249pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="4"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><nz-radio-group  [(ngModel)]="i.yaowubuliangfanying"  name="yaowubuliangfanying">
+      <label nz-radio  nzValue="无">无</label>
+      <label nz-radio  nzValue="有">有</label>
+    </nz-radio-group>
+    </p></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;line-height: 14pt;text-align: left;">治疗效果</p></td>
+    <td
+      style="width:271pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="5"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.zhiliaoxiaoguo"  name="zhiliaoxiaoguo">
+        <label nz-radio  nzValue="痊愈">痊愈</label>
+        <label nz-radio  nzValue="好转">好转</label>
+        <label nz-radio  nzValue="无变化">无变化</label>
+        <label nz-radio  nzValue="加重">加重</label>
+      </nz-radio-group>
+    </p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 14pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:37pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">是否转诊</p></td>
+    <td
+      style="width:358pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="2">
+      <p class="s1"       style="padding-left: 5pt;padding-right: 58pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.shifouzhuanzhen"  name="shifouzhuanzhen">
+        <label nz-radio  nzValue="无">无</label>
+        <label nz-radio  nzValue="有">有</label>
+      </nz-radio-group></p>
+      <p class="s1"       style="padding-left: 5pt;padding-right: 58pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+      转诊原因：<input nz-input [(ngModel)]="i.zhuanzhenyuanyin" name="zhuanzhenyuanyin"  nzSize="small"  style="width: 58%;" /></p>
+      <p class="s1"       style="padding-left: 5pt;padding-right: 58pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+      转诊至机构及科室：<input nz-input [(ngModel)]="i.zhuanzhenzhijigoujikeshi" name="zhuanzhenzhijigoujikeshi"  nzSize="small"  style="width: 58%;" /></p></td>
+    <td
+      style="width:7pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      rowspan="3"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">用药情况</p></td>
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物 1：
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuyi" name="yongyaoqingkuang_yaowuyi"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuyi_cishu" name="yongyaoqingkuang_yaowuyi_cishu"  nzSize="small"  style="width: 18%;" />次
+    </p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 14pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuyi_jiliang" name="yongyaoqingkuang_yaowuyi_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物 2：
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuer" name="yongyaoqingkuang_yaowuer"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuer_cishu" name="yongyaoqingkuang_yaowuer_cishu"  nzSize="small"  style="width: 18%;" />
+      次</p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 14pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowuer_jiliang" name="yongyaoqingkuang_yaowuer_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">药物 3：
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowusan" name="yongyaoqingkuang_yaowusan"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowusan_cishu" name="yongyaoqingkuang_yaowusan_cishu"  nzSize="small"  style="width: 18%;" />
+      次</p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 13pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaoqingkuang_yaowusan_cishu" name="yongyaoqingkuang_yaowusan_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      rowspan="3"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p class="s1" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">用药指导</p></td>
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物 1：
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuyi" name="yongyaozhidao_yaowuyi"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuyi_cishu" name="yongyaozhidao_yaowuyi_cishu"  nzSize="small"  style="width: 18%;" />
+      次</p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 14pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuyi_jiliang" name="yongyaozhidao_yaowuyi_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物 2：
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuer" name="yongyaozhidao_yaowuer"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuer_cishu" name="yongyaozhidao_yaowuer_cishu"  nzSize="small"  style="width: 18%;" />
+      次</p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 14pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuer_jiliang" name="yongyaozhidao_yaowuer_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">药物 3：
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowusan" name="yongyaozhidao_yaowusan"  nzSize="small"  style="width: 58%;" />
+    </p>
+    </td>
+    <td
+      style="width:113pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;">用法：每日(月)
+      <input nz-input [(ngModel)]="i.yongyaozhidao_yaowuer_cishu" name="yongyaozhidao_yaowuer_cishu"  nzSize="small"  style="width: 18%;" />
+      次</p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 6pt;text-indent: 0pt;line-height: 14pt;text-align: left;">每次剂量
+        <input nz-input [(ngModel)]="i.yongyaozhidao_yaowusan_jiliang" name="yongyaozhidao_yaowusan_jiliang"  nzSize="small"  style="width: 18%;" />
+        mg</p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      rowspan="2"><p class="s1" style="padding-top: 6pt;padding-left: 29pt;text-indent: 0pt;text-align: left;">康复措施</p>
+    </td>
+    <td
+      style="width:355pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      <label nz-checkbox nzValue="生活劳动能力"   [(ngModel)]="i.shenghuolaodongnengli"  name="shenghuolaodongnengli">生活劳动能力</label>
+      <label nz-checkbox nzValue="职业训练"   [(ngModel)]="i.zhiyexunlian"  name="zhiyexunlian">职业训练</label>
+      <label nz-checkbox nzValue="学习能力"   [(ngModel)]="i.xuexinengli" name="xuexinengli" >学习能力</label>
+      <label nz-checkbox nzValue="社会交往"   [(ngModel)]="i.shehuijiaowang" name="shehuijiaowang" >社会交往</label>
+      <label nz-checkbox nzValue="其他"   [(ngModel)]="i.kangfucuoshi_qita" name="kangfucuoshi_qita" >其他</label>
+    </p></td>
+  </tr>
+  <tr style="height:15pt">
+    <td
+      style="width:355pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="6"><p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;">
+      </p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;line-height: 13pt;text-align: left;">本次随访分类</p></td>
+    <td
+      style="width:158pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"
+      colspan="2"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 13pt;text-align: left;">
+      <nz-radio-group  [(ngModel)]="i.suifangfenlei"  name="suifangfenlei">
+        <label nz-radio  nzValue="不稳定">不稳定</label>
+        <label nz-radio  nzValue="基本稳定">基本稳定</label>
+        <label nz-radio  nzValue="稳定">稳定</label>
+      </nz-radio-group>
+    </p></td>
+    <td
+      style="width:7pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:22pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt"></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-right: 5pt;text-indent: 0pt;line-height: 13pt;text-align: right;"></p></td>
+  </tr>
+  <tr style="height:17pt">
+    <td
+      style="width:101pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 18pt;text-indent: 0pt;line-height: 14pt;text-align: left;">下次随访日期</p></td>
+    <td
+      style="width:165pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="3"><p class="s1" style="padding-left: 5pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><span
+      class="s2">                        </span><nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.xiacisuifangriqi" name="xiacisuifangriqi" ></nz-date-picker></p></td>
+    <td
+      style="width:84pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+      <p class="s1" style="padding-left: 10pt;text-indent: 0pt;line-height: 14pt;text-align: left;">随访医生签名</p></td>
+    <td
+      style="width:106pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+      colspan="2">
+      <input nz-input [(ngModel)]="i.suifangyishengqianming" name="suifangyishengqianming" maxlength="30"/>
+    </td>
+  </tr>
+</table>
+<div class="modal-footer" style="margin-top: 18px;">
+  <button nz-button  type="button"  (click)="close()">关闭</button>
+  <button nz-button  [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+</div>
+</form>
+</body>
+</html>

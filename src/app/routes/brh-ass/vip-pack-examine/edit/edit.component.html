@@ -1,0 +1,17 @@
+<sv-container size="small" title="详细信息">
+  <sv label="订单号">{{i.orderNum}}</sv>
+  <sv label="服务包">{{i.pkgName}}</sv>
+  <sv label="家庭医生团队">{{i.fdtName}}</sv>
+  <sv label="居民">{{i.patientName}}</sv>
+  <sv label="身份证号">{{i.vipcontract?i.vipcontract.idCardNo:''}}</sv>
+  <sv label="下单时间">{{i.createdOn|date}}</sv>
+  <!--<sv label="价格（元）">{{i.price}}</sv>-->
+  <!--<sv label="平台所得（%）">{{i.ptPercent}}</sv>-->
+  <sv label="适应人群">{{i.crowd}}</sv>
+  <sv label="服务包简介">{{i.introduction}}</sv>
+</sv-container>
+<div class="modal-footer" *ngIf="i.status == 0">
+  <button nz-button [nzLoading]="http.loading" [nzType]="'primary'" (click)="passed()">通过</button>
+  <button nz-button [nzLoading]="http.loading" [nzType]="'danger'" (click)="reject()">退回</button>
+  <button nz-button type="button" (click)="close()">关闭</button>
+</div>

@@ -1,0 +1,94 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}居民档案</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">姓名</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.name" name="name" maxlength="30" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <div *ngIf="i._id">
+    <nz-form-item class="mb-sm">
+      <nz-form-label nzSpan="6">性别</nz-form-label>
+      <nz-form-control nzSpan="18">
+        <input nz-input [value]="i.gender==='1'?'女':'男'" name="gender" maxlength="30" disabled/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="mb-sm">
+      <nz-form-label nzSpan="6">年龄</nz-form-label>
+      <nz-form-control nzSpan="18">
+        <input nz-input [(ngModel)]="i.age" name="age" maxlength="30" required disabled/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="mb-sm">
+      <nz-form-label nzSpan="6">出生日期</nz-form-label>
+      <nz-form-control nzSpan="18">
+        <input nz-input [value]="i.birth|date:'yyyy-MM-dd'" name="birth" maxlength="30" required disabled/>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">现住址</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.address" name="address" maxlength="50" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">户籍地址</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.domicile" name="domicile" maxlength="50" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">联系电话</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.tel" name="tel" maxlength="11" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">身份证号</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.idNumber" name="idNumber" maxlength="18" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">乡镇（街道）名称</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.streetName" name="streetName" maxlength="50" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">村（居）委会名称</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.committee" name="committee" maxlength="50" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">责任医生</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.doctor" name="doctor" maxlength="18" required/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">居民分类</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <nz-select style="width: 100%;" nzAllowClear nzPlaceHolder="居民分类" [(ngModel)]="i.focus" name="userType">
+        <nz-option nzValue="0" nzLabel="普通人群"></nz-option>
+        <nz-option nzValue="1" nzLabel="重点人群"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm" *ngIf="i.focus === '1'">
+    <nz-form-label nzSpan="6">居民分类</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <nz-select style="width: 100%;" nzShowSearch nzAllowClear nzPlaceHolder="居民分类" [(ngModel)]="i.tag" name="tag" nzMode="multiple">
+        <nz-option *ngFor="let tag of usertags" [nzValue]="tag.mainLabel" [nzLabel]="tag.mainLabel"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<page-header [title]="''"></page-header>
+
+<nz-card [nzBordered]="false">
+  <div nz-row>
+    <ng-container *ngIf="selectedRows.length > 0">
+      <nz-dropdown [nzPlacement]="'bottomLeft'">
+        <button nz-button nz-dropdown class="ml-sm">
+          更多操作
+          <i class="anticon anticon-down"></i>
+        </button>
+        <ul nz-menu>
+          <li nz-menu-item (click)="remove()">删除</li>
+        </ul>
+      </nz-dropdown>
+    </ng-container>
+  </div>
+  <nz-divider class="mb-lg"></nz-divider>
+
+  <st #st [data]="url" [req]="{params: args,method:'get',reName:{pi:'_page',ps:'_limit'}}"
+      [res]="{reName:{list: 'rows',total:'totalCount'}}"
+      [columns]="columns"></st>
+
+</nz-card>

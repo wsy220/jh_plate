@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}角色</div>
+</div>
+
+
+<nz-card [nzBordered]="false">
+
+  <div style="border-bottom: 1px solid rgb(233, 233, 233);">
+    <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate">
+      全选
+    </label>
+  </div>
+  <br>
+  <nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="updateSingleChecked()"></nz-checkbox-group>
+
+</nz-card>
+
+<div class="modal-footer">
+  <button nz-button type="button" (click)="close()">关闭</button>
+  <button nz-button [nzType]="'primary'" (click)="save()">保存
+  </button>
+</div>
+

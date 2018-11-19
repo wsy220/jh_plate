@@ -1,0 +1,49 @@
+<table class="table table-bordered">
+  <tr ><td width="50" class="h4">{{ basecontract.name}}</td> </tr>
+  <tr ><td width="50">合同编号：{{ basecontract.sno }}  </td></tr>
+  <tr ><td width="50">
+    <table class="table table-bordered">
+      <tr class="btn-primary">
+        <td width="50">开始日期</td>
+        <td width="50">结束日期</td>
+      </tr>
+      <td>{{ basecontract.startData }}</td>
+      <td>{{ basecontract.endData }}</td>
+    </table>
+  </td></tr>
+  <tr ><td width="50">签约人姓名：{{ basecontract.patientName }}  </td></tr>
+  <tr ><td width="50">签约人身份证号：{{ basecontract.idCardNo }}  </td></tr>
+  <tr ><td width="50">签约人联系电话：{{ basecontract.phone }}  </td></tr>
+  <tr ><td width="50">社保卡号：{{ basecontract.socialNo }}  </td></tr>
+  <tr ><td width="50">紧急联系人姓名：{{ basecontract.secondName }}  </td></tr>
+  <tr ><td width="50">紧急联系人电话：{{ basecontract.secondPhone }}  </td></tr>
+  <tr ><td width="50">紧急联系人地址：{{ basecontract.secondAddr }}  </td></tr>
+  <tr ><td width="50">家庭医生团队名：{{ basecontract.fdtName }}  </td></tr>
+  <tr ><td width="50">成员列表
+    <table class="table table-bordered">
+      <tr class="btn-primary">
+        <td width="30">序号</td>
+        <td width="50">姓名</td>
+        <td width="50">职位</td>
+      </tr>
+      <tr *ngFor="let item of basecontract.fdtMember; let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{memberTypesDic[item.position] }}</td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr ><td width="50">
+    <table class="table table-bordered">
+      <tr class="btn-primary">
+        <td width="50">家庭医生团队章</td>
+        <td width="50">乙方签名</td>
+      </tr>
+      <tr>
+        <td width="50"><img src="{{ basecontract.fdtImg ? getPathStr(basecontract.fdtImg) : 'images/sfzf.png' }}"  style="width: 120px;height: 80px;" class="img-thumbnail"/>  </td>
+        <td width="50"><img src="{{ basecontract.patientImg ? getPathStr(basecontract.patientImg) : 'images/sfzf.png' }}"  style="width: 120px;height: 80px;" class="img-thumbnail"/>  </td>
+      </tr>
+    </table>
+  </td></tr>
+</table>

@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}角色</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">姓名</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.name" name="name" maxlength="30" required/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">账号</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.email" name="email" maxlength="30" required [readOnly]="!!i._id"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="mb-sm" *ngIf="!i._id">
+    <nz-form-label nzSpan="6">密码</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.password" name="password" maxlength="30" required/>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">到期时间</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <nz-date-picker name="expiredOn" [(ngModel)]="i.expiredOn" required></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存
+    </button>
+  </div>
+</form>

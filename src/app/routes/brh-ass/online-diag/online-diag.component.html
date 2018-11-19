@@ -1,0 +1,6 @@
+<page-header [title]="''"></page-header>
+<nz-card [nzBordered]="false">
+  <st #st [data]="url" [req]="{method:'get',reName:{pi:'page',ps:'limit'}}"
+      [res]="{reName:{list: 'rows',total:'totalCount'}}"
+      [columns]="columns"></st>
+</nz-card>

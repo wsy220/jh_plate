@@ -1,0 +1,45 @@
+<page-header [title]="''"></page-header>
+<nz-card [nzBordered]="false">
+  <nz-tree
+    #treeCom
+    [nzData]="nodes"
+    [nzDefaultExpandedKeys]="expNodes"
+    nzMultiple="true"
+    (nzClick)="activeNode($event)"
+    (nzContextMenu)="activeNode($event)"
+    (nzDblClick)="openFolder($event)">
+    <ng-template #contextTemplate>
+      <ul nz-menu nzInDropDown>
+        <li nz-menu-item (click)="selectDropdown('group')"><span style="color: blue">新建分组</span></li>
+        <li nz-menu-item (click)="selectDropdown('folder')"><span style="color:blue">新建文件夹</span></li>
+        <li nz-menu-item (click)="selectDropdown('file')"><span style="color:blue">新建菜单</span></li>
+        <nz-divider style="margin:2px 0;"></nz-divider>
+        <li nz-menu-item (click)="selectDropdown('edit')"><span style="color:red">编辑</span></li>
+        <nz-divider style="margin:2px 0;"></nz-divider>
+        <li nz-menu-item (click)="selectDropdown('dele')"><span style="color:red">删除</span></li>
+      </ul>
+    </ng-template>
+    <ng-template #contextTemplate2>
+      <ul nz-menu nzInDropDown>
+        <li nz-menu-item (click)="selectDropdown('edit')"><span style="color:red">编辑</span></li>
+        <nz-divider style="margin:2px 0;"></nz-divider>
+        <li nz-menu-item (click)="selectDropdown('dele')"><span style="color:red">删除</span></li>
+      </ul>
+    </ng-template>
+    <ng-template #nzTreeTemplate let-node>
+        <span class="custom-node" [class.active]="activedNode?.key===node.key">
+          <span *ngIf="!node.isLeaf" (contextmenu)="contextMenu($event,contextTemplate)">
+            <i class="anticon" [ngClass]="node.isExpanded ? 'anticon-folder-open' : 'anticon-folder'"
+               (click)="openFolder(node)"></i>
+            <span class="folder-name">{{node.title}}</span>
+            <!--<span class="folder-desc">created by {{node?.origin?.author | lowercase}}</span>-->
+          </span>
+          <span *ngIf="node.isLeaf" (contextmenu)="contextMenu($event,contextTemplate2)">
+            <i class="anticon anticon-file"></i>
+            <span class="file-name">{{node.title}}</span>
+            <!--<span class="file-desc">modified by {{node?.origin?.author | lowercase}}</span>-->
+          </span>
+        </span>
+    </ng-template>
+  </nz-tree>
+</nz-card>

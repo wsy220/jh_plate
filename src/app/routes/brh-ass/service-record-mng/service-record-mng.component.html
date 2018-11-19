@@ -1,0 +1,49 @@
+<nz-card [nzBordered]="false">
+  <form nz-form [nzLayout]="'inline'" (ngSubmit)="getData()" class="search__form" style="margin-bottom: 0px;">
+    <nz-row [nzGutter]="{ md: 8, lg: 24, xl: 48 }">
+      <nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px; margin-right: 16px;">
+          <nz-form-label nzFor="_id">服务包名</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="filter_title" name="title" placeholder="请输入包名" id="title">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <!--<nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">-->
+        <!--<nz-form-item style="margin-bottom: 0px;margin-right: 16px;">-->
+          <!--<nz-form-label nzFor="status">医院名称</nz-form-label>-->
+          <!--<nz-form-control>-->
+            <!--<input nz-input [(ngModel)]="filter_hospital" name="hospital" placeholder="请输入医院名称" id="hospital">-->
+          <!--</nz-form-control>-->
+        <!--</nz-form-item>-->
+      <!--</nz-col>-->
+      <!--<nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">-->
+        <!--<nz-form-item>-->
+          <!--<nz-form-label nzFor="status">使用状态</nz-form-label>-->
+          <!--<nz-form-control>-->
+            <!--<nz-select [(ngModel)]="filter_status" name="status" id="status" [nzPlaceHolder]="'请选择'"-->
+                       <!--[nzShowSearch]="true">-->
+              <!--<nz-option *ngFor="let key of objectKeys(TAG)" [nzLabel]="TAG[key].text" [nzValue]="key">{{key}}-->
+              <!--</nz-option>-->
+            <!--</nz-select>-->
+          <!--</nz-form-control>-->
+        <!--</nz-form-item>-->
+      <!--</nz-col>-->
+      <nz-col [nzSpan]="expandForm ? 24 : 8" [class.text-right]="expandForm"
+              style="margin-bottom: 10px;margin-top: 10px;padding-left: 10px">
+        <button nz-button type="submit" [nzType]="'primary'">查询</button>
+        <button nz-button type="reset" (click)="resetData()" class="mx-sm">重置</button>
+      </nz-col>
+    </nz-row>
+  </form>
+</nz-card>
+<nz-card [nzBordered]="false">
+  <div nz-row>
+    <button nz-button (click)="add()" [nzType]="'primary'"><i class="anticon anticon-plus"></i>
+      <span>新增随访</span></button>
+  </div>
+  <nz-divider class="mb-lg"></nz-divider>
+  <st #st [data]="url" [req]="{method:'post',reName:{pi:'page',ps:'limit'},body:args}"
+      [res]="{reName:{list: 'rows',total:'totalCount'}}" [columns]="columns" (filterChange)="getData()"></st>
+
+</nz-card>

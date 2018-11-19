@@ -1,0 +1,161 @@
+<form nz-form [formGroup]="form" (ngSubmit)="_submitForm()" [nzLayout]="'vertical'">
+  <div>
+    <nz-row nzGutter="8">
+      <nz-col nzLg="8" nzMd="12" nzSm="24" style="text-align: center">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-upload class="avatar-uploader"
+                       nzAction="api/uploadImg"
+                       nzName="single-file"
+                       nzListType="picture-card"
+                       [nzShowUploadList]="false"
+                       [nzBeforeUpload]="beforeUpload"
+                       [nzAccept]="'image/*'"
+                       (nzChange)="handleChange($event)">
+              <ng-container *ngIf="!item.logo">
+                <i class="anticon anticon-plus"></i>
+                <div class="ant-upload-text">团队LOGO</div>
+              </ng-container>
+              <img *ngIf="item.logo" [src]="item.logo" class="avatar" style="width: 150px;">
+            </nz-upload>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzLg="8" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>团队名称</nz-form-label>
+          <nz-form-control>
+            <input formControlName="name" nz-input [(ngModel)]="item.name" name="name" maxlength="20"
+                   placeholder="请输入团队名称"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzLg="8" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>联系电话</nz-form-label>
+          <nz-form-control>
+            <input formControlName="phone" nz-input [(ngModel)]="item.phone" name="phone" maxlength="20" required
+                   placeholder="请输入联系电话"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzLg="8" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>管理居民人数</nz-form-label>
+          <nz-form-control>
+            <input formControlName="communityPatientQuantity" nz-input [(ngModel)]="item.communityPatientQuantity"
+                   placeholder="请输入管理居民人数"
+                   name="communityPatientQuantity" maxlength="20"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+
+
+      <nz-col nzLg="8" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>所属医院</nz-form-label>
+          <nz-form-control>
+            <input formControlName="hospitalname" nz-input [(ngModel)]="item.hospital.name" name="hospitalname"
+                   placeholder="请输入所属医院"
+                   maxlength="10" readonly/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+
+      <nz-col nzLg="24" nzMd="24" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>团队介绍
+            <nz-tooltip [nzTitle]="'团对介绍将会给用户展示，请认真填写'">
+              <span nz-tooltip>
+                <i class="anticon anticon-info-circle-o"></i>
+              </span>
+            </nz-tooltip>
+          </nz-form-label>
+          <nz-form-control>
+          <textarea formControlName="summary" nz-input [(ngModel)]="item.summary" [nzAutosize]="{minRows: 5}"
+                    placeholder="请输入团队介绍"></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+
+      <nz-divider nzDashed></nz-divider>
+
+      <nz-col nzLg="8" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>团队管理员</nz-form-label>
+          <nz-form-control>
+            <nz-select formControlName="teamLeader" style="width: 100%;" nzMode="default" [(ngModel)]="item.teamLeader"
+                       nzPlaceHolder="选择团队管理员"
+                       nzAllowClear nzShowSearch [nzServerSearch]="true" (nzOnSearch)="onDoctorSearch($event)">
+              <ng-container *ngFor="let o of optionList">
+                <nz-option *ngIf="!isLoading" [nzValue]="o._id" [nzLabel]="o.name"></nz-option>
+              </ng-container>
+              <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+                <i class="anticon anticon-loading anticon-spin loading-icon"></i> Loading Data...
+              </nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+
+
+      <nz-col nzLg="24" nzMd="24" nzSm="24">
+        <nz-table formArrayName="items" [nzData]="items.value" [nzShowPagination]="false">
+          <thead>
+          <tr>
+            <th>职位</th>
+            <th>医生名称</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+            <td>
+              <span *ngIf="editIndex!==i">{{getmemberType(items.value[i].memberType)}}</span>
+              <span *ngIf="editIndex===i" nz-form-control>
+                <nz-select formControlName="memberType" style="width: 120px;" nzAllowClear nzPlaceHolder="请选择">
+                  <nz-option nzValue="LCYS" nzLabel="临床医生"></nz-option>
+                  <nz-option nzValue="GWYS" nzLabel="公卫医生"></nz-option>
+                  <nz-option nzValue="HS" nzLabel="护士"></nz-option>
+                </nz-select>
+              </span>
+            </td>
+            <td>
+              <span *ngIf="editIndex!==i">{{getDoctorName(items.value[i].doctor)}}</span>
+              <span *ngIf="editIndex===i" nz-form-control>
+                <nz-select formControlName="doctor" style="width: 100%;" nzMode="default" nzPlaceHolder="选择团队成员"
+                           nzAllowClear>
+                  <ng-container *ngFor="let o of list">
+                    <nz-option [nzValue]="o._id" [nzLabel]="o.name"></nz-option>
+                  </ng-container>
+                </nz-select>
+            </span>
+            </td>
+
+            <td>
+            <span *ngIf="editIndex!==i">
+              <a (click)="edit(i)">编辑</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <nz-popconfirm (nzOnConfirm)="del(i)" [nzTitle]="'是否要删除此行？'">
+                <a nz-popconfirm>删除</a>
+              </nz-popconfirm>
+            </span>
+              <span *ngIf="editIndex===i">
+              <a (click)="save(i)">保存</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <nz-popconfirm (nzOnConfirm)="cancel(i)" [nzTitle]="'是否要取消操作？'">
+                <a nz-popconfirm>取消</a>
+              </nz-popconfirm>
+            </span>
+            </td>
+          </tr>
+          </tbody>
+        </nz-table>
+        <button *ngIf="editIndex===-1" nz-button [nzType]="'dashed'" (click)="add()" class="ant-btn__block mt-md">
+          <i class="anticon anticon-plus"></i>
+          <span>新增成员</span>
+        </button>
+      </nz-col>
+    </nz-row>
+  </div>
+</form>

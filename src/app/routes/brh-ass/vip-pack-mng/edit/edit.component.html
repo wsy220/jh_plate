@@ -1,0 +1,90 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}服务包</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">标题</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <input nz-input [(ngModel)]="i.title" name="title" maxlength="30" required/>
+    </nz-form-control>
+    <nz-form-label nzSpan="2">位置排序</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <nz-input-number [(ngModel)]="i.indexnumber" name="indexnumber" [nzMin]="0" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">服务人群</nz-form-label>
+    <nz-form-control nzSpan="22">
+      <textarea nz-input [(ngModel)]="i.targetPatient" name="targetPatient" [nzAutosize]="{minRows: 2}" placeholder="请输入内容介绍"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">价格</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <nz-input-number [(ngModel)]="i.price" name="price" [nzMin]="0" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+    <nz-form-label nzSpan="2">时长</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <nz-input-number [(ngModel)]="i.period" name="period" [nzMin]="0" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+    <nz-form-label nzSpan="2">时间单位</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <nz-select [(ngModel)]="i.unit" name="unit" required [nzAllowClear]="false">
+        <nz-option *ngFor="let i of units" [nzLabel]="i.label" [nzValue]="i.value">
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+    <nz-form-label nzSpan="2">次数</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <nz-input-number [(ngModel)]="i.times" name="times" [nzMin]="0" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <p nz-form-explain>例：100元1年1次 = 价格+时长+时间单位+次数</p>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">可见用户</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <nz-radio-group [(ngModel)]="i.type" name="type">
+        <label nz-radio *ngFor="let i of pkgTypes" [nzValue]="i.value">{{i.label}}</label>
+      </nz-radio-group>
+    </nz-form-control>
+    <nz-form-label nzSpan="2">状态</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <nz-radio-group [(ngModel)]="i.status" name="status">
+        <label nz-radio *ngFor="let i of pkgstatus" [nzValue]="i.value">{{i.label}}</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">选择医院</nz-form-label>
+    <nz-form-control nzSpan="22">
+      <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzPlaceHolder="选择医院" [(ngModel)]="i.hos" name="hos" disabled>
+        <nz-option *ngFor="let hospital of hospitals" [nzValue]="hospital._id" [nzLabel]="hospital.name"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">内容介绍</nz-form-label>
+    <nz-form-control nzSpan="22">
+      <textarea nz-input [(ngModel)]="i.introduction" name="introduction" [nzAutosize]="{minRows: 2}" placeholder="请输入内容介绍"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">服务内容</nz-form-label>
+    <nz-form-control nzSpan="22">
+      <ckeditor height="100" [(ngModel)]="i.content" [config]="config" id="content" name="content" debounce="500"></ckeditor>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="2">协议内容</nz-form-label>
+    <nz-form-control nzSpan="22">
+      <!--<ckeditor height="100" [(ngModel)]="i.agContent" [config]="config" id="agContent" name="agContent" debounce="500" readonly="true"></ckeditor>-->
+     <!-- <textarea nz-input [(ngModel)]="i.agContent" name="agContent" [nzAutosize]="{minRows: 2}" placeholder="协议内容"></textarea>-->
+      <div [innerHtml]="i.agContent" style="width: 100%"></div>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+  </div>
+</form>

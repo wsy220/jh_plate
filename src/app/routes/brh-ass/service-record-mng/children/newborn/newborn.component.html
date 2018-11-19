@@ -1,0 +1,478 @@
+<!--<div class="modal-header">-->
+<!--<div class="modal-title">{{i._id? '编辑' : '添加'}}居民档案</div>-->
+<!--</div>-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style m="text/css">
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.664pt" cellspacing="0" #print_div>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;">父亲姓名</p>
+      </td>
+      <td style="width: 200pt;">
+        <input style="width: 100%;" [(ngModel)]="i.fuqinxingming" name="fuqinxingming"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;"> 父亲职业</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.fuqinzhiye" name="fuqinzhiye"/>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;"> 父亲联系电话</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.fuqinlianxidianhua" name="fuqinlianxidianhua"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;"> 父亲出生日期</p>
+      </td>
+      <td>
+        <nz-date-picker [(ngModel)]="i.fuqinchushengriqi" name="fuqinchushengriqi" [nzFormat]="dateFormat"></nz-date-picker>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;"> 母亲姓名</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.muqinxingming" name="muqinxingming"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;"> 母亲职业</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.muqinzhiye" name="muqinzhiye"/>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;"> 母亲联系电话</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.muqinlianxidianhua" name="muqinlianxidianhua"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">母亲出生日期</p>
+      </td>
+      <td>
+        <nz-date-picker [(ngModel)]="i.muqinchushengriqi" name="muqinchushengriqi" [nzFormat]="dateFormat"></nz-date-picker>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;">出生孕周</p></td>
+      <td><input style="width: 40pt;" [(ngModel)]="i.chushengyunzhou" name="chushengyunzhou"/>周</td>
+      <td>
+        <p class="s1" style="text-align: center;">母亲妊娠期患病情况</p>
+      </td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.renchenqihuanbing" name="renchenqihuanbing">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="糖尿病">糖尿病</label>
+          <label nz-radio nzValue="妊娠期高血压">妊娠期高血压</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:31pt">
+      <td>
+        <p class="s1" style="text-align: center;"> 助产机构名称：</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.zhuchanjigou" name="zhuchanjigou"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">出生情况</p>
+      </td>
+      <td>
+        <label nz-checkbox nzValue="顺产" [(ngModel)]="i.shunchan" name="shunchan">顺产</label>
+        <label nz-checkbox nzValue="胎头吸引" [(ngModel)]="i.taitouxiyin" name="taitouxiyin">胎头吸引</label>
+        <label nz-checkbox nzValue="产钳" [(ngModel)]="i.chanqian" name="chanqian">产钳</label>
+        <label nz-checkbox nzValue="剖宫" [(ngModel)]="i.pougong" name="pougong">剖宫</label>
+        <label nz-checkbox nzValue="双多胎" [(ngModel)]="i.shuangduotai" name="shuangduotai">双多胎</label>
+        <label nz-checkbox nzValue="臀位" [(ngModel)]="i.tunwei" name="tunwei">臀位</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.chushengqingkuangqita" name="chushengqingkuangqita">其他</label>
+      </td>
+    </tr>
+    <tr style="height:32pt">
+      <td><p class="s1" style="text-align: center;">新生儿窒息</p>
+        <p class="s1" style="text-align: center;">(Apgar 评分：1min 5min 不详）</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.xinshengerzhixi" name="xinshengerzhixi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">畸型</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.jixing" name="jixing">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">新生儿听力筛查</p></td>
+      <td colspan="3">
+        <nz-radio-group [(ngModel)]="i.tinglishaicha" name="tinglishaicha">
+          <label nz-radio nzValue="通过">通过</label>
+          <label nz-radio nzValue="未通过">未通过</label>
+          <label nz-radio nzValue="未筛查">未筛查</label>
+          <label nz-radio nzValue="不详">不详</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">新生儿疾病筛查</p></td>
+      <td colspan="3">
+        <label nz-checkbox nzValue="未进行" [(ngModel)]="i.weijinxing" name="weijinxing">未进行</label>
+        <label nz-checkbox nzValue="检查均阴性" [(ngModel)]="i.jianchajunyinxing" name="jianchajunyinxing">检查均阴性</label>
+        <label nz-checkbox nzValue="甲低" [(ngModel)]="i.jiadi" name="jiadi">甲低</label>
+        <label nz-checkbox nzValue="苯丙酮尿症" [(ngModel)]="i.benbingtongniaozheng" name="benbingtongniaozheng">苯丙酮尿症</label>
+        <label nz-checkbox nzValue="其他遗传代谢病" [(ngModel)]="i.qitayinchuandaixiebing" name="qitayinchuandaixiebing">其他遗传代谢病</label>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;">新生儿出生体重 kg</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.chushengtizhong" name="chushengtizhong"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">目前体重 kg</p></td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.muqiantizhong" name="muqiantizhong"/>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;">出生身长 cm</p>
+      </td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.chushengshenchang" name="chushengshenchang"/>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">喂养方式</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.weiyangfangshi" name="weiyangfangshi">
+          <label nz-radio nzValue="纯母乳">纯母乳</label>
+          <label nz-radio nzValue="混合">混合</label>
+          <label nz-radio nzValue="人工">人工</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td>
+        <p class="s1" style="text-align: center;">吃奶量</p>
+      </td>
+      <td><input style="width: 40pt;" [(ngModel)]="i.weinailiang" name="weinailiang"/>mL/次</td>
+      <td>
+        <p class="s1" style="text-align: center;">吃奶次数</p>
+      </td>
+      <td><input style="width: 40pt;" [(ngModel)]="i.chinaicishu" name="chinaicishu"/>次/日</td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">大便</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.dabian" name="dabian">
+          <label nz-radio nzValue=" 糊状"> 糊状</label>
+          <label nz-radio nzValue="稀">稀</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">大便次数</p></td>
+      <td>
+        <input style="width: 40pt;" [(ngModel)]="i.dabiancishu" name="dabiancishu"/>次/日
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">呕吐</p></td>
+      <td style="width:59pt;">
+        <nz-radio-group [(ngModel)]="i.outu" name="outu">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">体温 ℃</p></td>
+      <td>
+        <input style="width: 100%;" [(ngModel)]="i.tiwen" name="tiwen"/>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">心率 </p></td>
+      <td>
+        <input style="width: 40pt;" [(ngModel)]="i.xinlv" name="xinlv"/>次/分钟
+      </td>
+      <td><p class="s1" style="text-align: center;">呼吸频率</p></td>
+      <td>
+        <input style="width: 40pt;" [(ngModel)]="i.huxipinlv" name="huxipinlv"/>次/分钟
+      </td>
+    </tr>
+    <tr style="height:29pt">
+      <td>
+        <p class="s1" style="text-align: center;">面色</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.mianse" name="mianse">
+          <label nz-radio nzValue="红润">红润</label>
+          <label nz-radio nzValue="黄染">黄染</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">黄疸部位</p>
+      </td>
+      <td>
+        <label nz-checkbox nzValue="无" [(ngModel)]="i.huangdanbuweiwu" name="huangdanbuweiwu">无</label>
+        <label nz-checkbox nzValue="躯干" [(ngModel)]="i.huangdanbuweiqugan" name="huangdanbuweiqugan">躯干</label>
+        <label nz-checkbox nzValue="四肢" [(ngModel)]="i.huangdanbuweisizhi" name="huangdanbuweisizhi">四肢</label>
+        <label nz-checkbox nzValue="手足" [(ngModel)]="i.huangdanbuweishouzu" name="huangdanbuweishouzu">手足</label>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">前囟 cm× cm</p></td>
+      <td colspan="3">
+        <nz-radio-group [(ngModel)]="i.qianxin" name="qianxin">
+          <label nz-radio nzValue=" 正常"> 正常</label>
+          <label nz-radio nzValue="膨隆">膨隆</label>
+          <label nz-radio nzValue="凹陷">凹陷</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">眼 睛</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.yanjing" name="yanjing">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">四肢活动度</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.sizhihuodongdu" name="sizhihuodongdu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">耳外观</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.erwaiguan" name="erwaiguan">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">颈部包块</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.xiangbubaokuai" name="xiangbubaokuai">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">鼻</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.bi" name="bi">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">皮肤</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.pifu" name="pifu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="湿疹">湿疹</label>
+          <label nz-radio nzValue="糜烂">糜烂</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">口腔</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.kouqiang" name="kouqiang">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">肛门</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.gangmen" name="gangmen">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">心肺听诊</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.xinfeitingzhen" name="xinfeitingzhen">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td><p class="s1" style="text-align: center;">胸部</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.xiongbu" name="xiongbu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">腹部触诊 </p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.fubuchuzhen" name="fubuchuzhen">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+      <td>
+        <p class="s1" style="text-align: center;">脊柱</p>
+      </td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.jizhu" name="jizhu">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p
+        class="s1" style="text-align: center;">外生殖器</p></td>
+      <td colspan="3">
+        <nz-radio-group [(ngModel)]="i.waishengzhiqi" name="waishengzhiqi">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:20pt">
+      <td><p class="s1" style="text-align: center;">脐带</p></td>
+      <td colspan="3">
+        <nz-radio-group [(ngModel)]="i.qidai" name="qidai">
+          <label nz-radio nzValue="未脱">未脱</label>
+          <label nz-radio nzValue="脱落">脱落</label>
+          <label nz-radio nzValue="脐部有渗出">脐部有渗出</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:35pt">
+      <td><p class="s1" style="text-align: center;">转诊建议</p></td>
+      <td colspan="3">
+        <nz-radio-group [(ngModel)]="i.zhuanzhenjianyi" name="zhuanzhenjianyi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        原因：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenyuanyin" name="zhuanzhenyuanyin"/>
+        机构及科室：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenjigou" name="zhuanzhenjigou"/>
+      </td>
+    </tr>
+    <tr style="height:34pt">
+      <td><p class="s1" style="text-align: center;">指导</p></td>
+      <td style="width:105pt" colspan="3">
+        <!--<nz-radio-group [(ngModel)]="i.zhidao" name="zhidao">-->
+          <!--<label nz-radio nzValue="喂养指导">喂养指导</label>-->
+          <!--<label nz-radio nzValue="发育指导">发育指导</label>-->
+          <!--<label nz-radio nzValue="防病指导">防病指导</label>-->
+          <!--<label nz-radio nzValue="预防伤害指导">预防伤害指导</label>-->
+          <!--<label nz-radio nzValue="口腔保健指导">口腔保健指导</label>-->
+          <!--<label nz-radio nzValue="其他">其他</label>-->
+        <!--</nz-radio-group>-->
+        <label nz-checkbox nzValue="喂养指导" [(ngModel)]="i.weiyang" name="weiyang">喂养指导</label>
+        <label nz-checkbox nzValue="发育指导" [(ngModel)]="i.fayu" name="fayu">发育指导</label>
+        <label nz-checkbox nzValue="防病指导" [(ngModel)]="i.fangbing" name="fangbing">防病指导</label>
+        <label nz-checkbox nzValue="预防伤害指导" [(ngModel)]="i.yufangshanghai" name="yufangshanghai">预防伤害指导</label>
+        <label nz-checkbox nzValue="口腔保健指导" [(ngModel)]="i.kouqiangbaojian" name="kouqiangbaojian">口腔保健指导</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.zhidaoqita" name="zhidaoqita">其他</label>
+      </td>
+    </tr>
+    <tr style="height:22pt">
+      <td><p class="s1" style="text-align: center;">下次随访日期</p></td>
+      <td>
+        <nz-date-picker [(ngModel)]="i.xiacisuifangriqi" name="xiacisuifangriqi" [nzFormat]="dateFormat"></nz-date-picker>
+      </td>
+      <td><p class="s1" style="text-align: center;">下次随访地点</p></td>
+      <td>
+        <input style="width:86pt;" [(ngModel)]="i.xiacisuifangdidian" name="xiacisuifangdidian"/>
+      </td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+    <essence-ng2-print
+      [mode]="'iframe'"
+      [popTitle]="''"
+      [btnText]="'打印表格'"
+      [btnClass]="{'btn': true, 'btn-info': true}"
+      [printHTML]="print_div"
+      [printStyle]="printStyle"
+      [printCSS]="printCSS"
+      [showBtn]="printBtnBoolean"
+      [btnClass]="{'btn': true, 'btn-success': true}" #ep>
+    </essence-ng2-print>
+  </div>
+</form>
+</body>
+</html>

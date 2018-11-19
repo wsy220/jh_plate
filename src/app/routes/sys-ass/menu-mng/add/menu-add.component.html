@@ -1,0 +1,32 @@
+<nz-card [nzBordered]="false">
+  <form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
+    <se label="目标名称" error="请输入目标名称" required>
+      <input nz-input formControlName="text" [(ngModel)]="obj.text" placeholder="给目标起个名字">
+    </se>
+    <se label="i18n主键" error="请输入i18n主键" required>
+      <input nz-input formControlName="i18n" [(ngModel)]="obj.i18n" placeholder="i18n主键">
+    </se>
+    <!--<se label="是否显示分组名" error="请输入是否显示分组名" required>-->
+    <!--<input nz-input formControlName="group" [(ngModel)]="obj.group" placeholder="是否显示分组名">-->
+    <!--</se>-->
+    <se label="路由" error="请输入路由" required *ngIf="obj.type == 'file'">
+      <input nz-input formControlName="link" [(ngModel)]="obj.link" placeholder="路由">
+    </se>
+    <se label="是否为快捷菜单" error="请输入是否为快捷菜单" required *ngIf="obj.type == 'file'">
+      <!--<input nz-input formControlName="shortcut" [(ngModel)]="obj.shortcut" placeholder="是否为快捷菜单">-->
+      <nz-select formControlName="shortcut" [(ngModel)]="obj.shortcut" nzPlaceHolder="是否为快捷菜单">
+        <nz-option nzValue="true" nzLabel="是"></nz-option>
+        <nz-option nzValue="false" nzLabel="否"></nz-option>
+      </nz-select>
+
+
+    </se>
+    <se label="图标" error="请输入图标" required *ngIf="obj.type != 'group'">
+      <input nz-input formControlName="icon" [(ngModel)]="obj.icon" placeholder="图标">
+    </se>
+    <se label="序号" error="请输入序号" required>
+      <input nz-input formControlName="order" [(ngModel)]="obj.order" placeholder="序号">
+    </se>
+
+  </form>
+</nz-card>

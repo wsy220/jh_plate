@@ -1,0 +1,65 @@
+<!--<nz-form-item class="mb-sm">-->
+<!--<nz-form-label nzSpan="6">居民分类</nz-form-label>-->
+<!--<nz-form-control nzSpan="18">-->
+<!--<nz-select style="width: 180px;" [(ngModel)]="selectedTag" (ngModelChange)="tagChange($event)">-->
+<!--<nz-option *ngFor="let p of tagData" [nzValue]="p.subCode" [nzLabel]="p.mainLabel"></nz-option>-->
+<!--</nz-select>-->
+<!--</nz-form-control>-->
+<!--</nz-form-item>-->
+<!--<nz-form-item class="mb-sm">-->
+<!--<nz-form-label nzSpan="6">随访表格</nz-form-label>-->
+<!--<nz-form-control nzSpan="18">-->
+<!--<nz-select style="width: 180px;" [(ngModel)]="selectedTable">-->
+<!--<nz-option *ngFor="let c of tableData[selectedTag]" [nzValue]="c.subCode" [nzLabel]="c.mainLabel"></nz-option>-->
+<!--</nz-select>-->
+<!--</nz-form-control>-->
+<!--</nz-form-item>-->
+  <div class="modal-header">
+    <div class="modal-title">随访记录表</div>
+  </div>
+  <div>
+    <label nzSpan="6">居民分类：</label>
+    <nz-select nzSpan="18" style="width: 100%;" [(ngModel)]="selectedTag" (ngModelChange)="tagChange($event)" [nzDisabled]="i">
+      <nz-option *ngFor="let p of tagData" [nzValue]="p.subCode" [nzLabel]="p.mainLabel"></nz-option>
+    </nz-select>
+    <label nzSpan="6">随访表格：</label>
+    <nz-select nzSpan="18" style="width: 100%;" [(ngModel)]="selectedTable" [nzDisabled]="i" (ngModelChange)="tableChange($event)">
+      <nz-option *ngFor="let c of tableData[selectedTag]" [nzValue]="c.subCode" [nzLabel]="c.mainLabel"></nz-option>
+    </nz-select>
+
+    <nz-divider></nz-divider>
+
+    <newborn-edit  *ngIf="selectedTable === 'sf_xse'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></newborn-edit>
+    <first-visit  *ngIf="selectedTable === 'sf_fjh_first_visit'"  [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></first-visit>
+    <normal-visit *ngIf="selectedTable === 'sf_fjh_normal_visit'"  [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></normal-visit>
+    <psychosis-info *ngIf="selectedTable === 'sf_jsb_psychosis_info'"  [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></psychosis-info>
+    <psychosis-normal *ngIf="selectedTable === 'sf_jsb_psychosis_normal'"  [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></psychosis-normal>
+    <month-visit *ngIf="selectedTable === 'sf_et_1_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="1"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_3_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="3"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_6_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="6"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_8_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="8"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_12_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="12"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_18_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="18"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_24_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="24"></month-visit>
+    <month-visit *ngIf="selectedTable === 'sf_et_30_month'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [m]="30"></month-visit>
+    <year-visit *ngIf="selectedTable === 'sf_et_3_year'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [y]="3"></year-visit>
+    <year-visit *ngIf="selectedTable === 'sf_et_4_year'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [y]="4"></year-visit>
+    <year-visit *ngIf="selectedTable === 'sf_et_5_year'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [y]="5"></year-visit>
+    <year-visit *ngIf="selectedTable === 'sf_et_6_year'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [y]="6"></year-visit>
+    <diabetes-normal-visit *ngIf="selectedTable === 'sf_tnb_diabetes_normal_visit'"  [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></diabetes-normal-visit>
+    <antenatal-first-visit *ngIf="selectedTable === 'sf_ycf_1_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></antenatal-first-visit>
+    <antenatal-normal-visit *ngIf="selectedTable === 'sf_ycf_2_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="2"></antenatal-normal-visit>
+    <antenatal-normal-visit *ngIf="selectedTable === 'sf_ycf_3_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="3"></antenatal-normal-visit>
+    <antenatal-normal-visit *ngIf="selectedTable === 'sf_ycf_4_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="4"></antenatal-normal-visit>
+    <antenatal-normal-visit *ngIf="selectedTable === 'sf_ycf_5_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="5"></antenatal-normal-visit>
+    <postpartum-normal-visit *ngIf="selectedTable === 'sf_ycf_ch_1_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="1"></postpartum-normal-visit>
+    <postpartum-normal-visit *ngIf="selectedTable === 'sf_ycf_ch_2_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i" [t]="2"></postpartum-normal-visit>
+    <old-visit-visit *ngIf="selectedTable === 'sf_lr_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></old-visit-visit>
+    <hypertension-visit-visit *ngIf="selectedTable === 'sf_gxy_visit'" [selectedTag]="selectedTag" [selectedTable]="selectedTable" [tableTitle]="title" [userId]="userId" [_i]="i"></hypertension-visit-visit>
+  </div>
+<!--<div class="modal-header">-->
+  <!--<div class="modal-title">{{title}}</div>-->
+<!--</div>-->
+
+
+

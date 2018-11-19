@@ -1,0 +1,44 @@
+<nz-card [nzBordered]="false">
+  <form nz-form [nzLayout]="'inline'" (ngSubmit)="getData()" class="search__form" style="margin-bottom: 0px;">
+    <nz-row [nzGutter]="{ md: 8, lg: 24, xl: 48 }">
+      <nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px; margin-right: 16px;">
+          <nz-form-label nzFor="_id">姓名</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="filter_name" name="_id" placeholder="请输入姓名" id="_id">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzMd="8" nzSm="24" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px; margin-right: 16px;">
+          <nz-form-label nzFor="name">手机号</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="filter_phone" name="name" placeholder="请输入手机号" id="tel">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col nzMd="8" nzSm="24" *ngIf="expandForm" style="margin-bottom: 10px;margin-top: 10px;">
+        <nz-form-item style="margin-bottom: 0px;margin-right: 16px;">
+          <nz-form-label nzFor="status">身份证号</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="filter_zgno" name="name" placeholder="请输入资格证号" id="zgzh">
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col [nzSpan]="expandForm ? 24 : 8" [class.text-right]="expandForm"
+              style="margin-bottom: 10px;margin-top: 10px;">
+        <button nz-button type="submit" [nzType]="'primary'">查询</button>
+        <button nz-button type="reset" (click)="resetData()" class="mx-sm">重置</button>
+        <a (click)="expandForm=!expandForm">
+          {{expandForm ? '收起' : '展开'}}
+          <i class="anticon" [class.anticon-down]="!expandForm" [class.anticon-up]="expandForm"></i>
+        </a>
+      </nz-col>
+    </nz-row>
+  </form>
+</nz-card>
+<nz-card [nzBordered]="false">
+  <st #st [data]="url" [req]="{params: args,method:'post',reName:{pi:'page',ps:'rows'},allInBody:true}"
+      [res]="{reName:{list: 'rows',total:'records'}}"
+      [columns]="columns"></st>
+</nz-card>

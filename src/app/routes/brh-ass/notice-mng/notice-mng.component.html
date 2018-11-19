@@ -1,0 +1,20 @@
+<page-header [title]="''">
+  <ng-template #tab>
+    <nz-tabset [nzSelectedIndex]="pos">
+      <nz-tab *ngFor="let i of tabs" [nzTitle]="i.tab" (nzClick)="to(i)"></nz-tab>
+    </nz-tabset>
+  </ng-template>
+</page-header>
+<!--<nz-tabset>-->
+<!--<nz-tab nzTitle="居民"(nzSelect)="setPa()">-->
+<!--<st #pa [data]="paUrl" [req]="{method:'post',body:args}" (checkboxChange)="checkboxChange($event)" (filterChange)="getData()"-->
+<!--[res]="{reName:{list: 'rows',total:'totalCount'}}" [columns]="columns"></st>-->
+<!--</nz-tab>-->
+<!--<nz-tab nzTitle="医护" (nzSelect)="setDc()">-->
+<!--<st #dc [data]="dcUrl" [req]="{method:'post',body:args}" (checkboxChange)="checkboxChange($event)" (filterChange)="getData()"-->
+<!--[res]="{reName:{list: 'rows',total:'totalCount'}}" [columns]="columns"></st>-->
+<!--</nz-tab>-->
+<!--</nz-tabset>-->
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,169 @@
+{
+  "app": {
+    "name": "柒拾佳护健康管理",
+    "description": "70 柒拾 柒拾佳护 健康管理 健康"
+  },
+  "user": {
+    "name": "Admin",
+    "avatar": "./assets/tmp/img/avatar.jpg",
+    "email": "cipchk@qq.com"
+  },
+  "menu": [
+    {
+      "text": "主导航",
+      "i18n": "main_navigation",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "首页",
+          "i18n": "dashboard_v1",
+          "link": "/dashboard/v1",
+          "icon": "anticon antanticon anticon-appstore"
+        },
+        {
+          "text": "快捷菜单",
+          "i18n": "shortcut",
+          "icon": "anticon antanticon anticon-rocket",
+          "shortcutRoot": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "系统管理",
+      "i18n": "sys-mng",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "icon": "anticon antanticon anticon-appstore-o",
+          "text": "his-mng",
+          "link": "/brh-ass/his",
+          "i18n": "his-mng",
+          "reuse": false
+        },
+        {
+          "icon": "anticon antanticon anticon-user",
+          "text": "dc-mng",
+          "link": "/brh-ass/dc",
+          "i18n": "dc-mng",
+          "reuse": false
+        },
+        {
+          "icon": "anticon antanticon anticon-wechat",
+          "text": "notice-mng",
+          "link": "/brh-ass/notice",
+          "i18n": "notice-mng",
+          "reuse": false
+        }
+      ]
+    },
+    {
+      "text": "家庭医生",
+      "i18n": "home-dc",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "家庭医生管理",
+          "i18n": "home-dc-mng-all",
+          "icon": "anticon antanticon anticon-home",
+          "children": [
+            {
+              "text": "team-mng",
+              "link": "/brh-ass/team",
+              "i18n": "team-mng",
+              "reuse": false,
+              "shortcut": true
+            },
+            {
+              "text": "contract-mng",
+              "link": "/brh-ass/contract",
+              "i18n": "contract-mng"
+            },
+            {
+              "text": "archives-mng",
+              "link": "/brh-ass/archives",
+              "i18n": "archives-mng"
+            }
+          ]
+        },
+        {
+          "text": "服务包管理",
+          "i18n": "pack-mng-all",
+          "icon": "anticon antanticon anticon-medicine-box",
+          "children": [
+            {
+              "text": "vip-pack-mng",
+              "link": "/brh-ass/vip-pack",
+              "i18n": "vip-pack-mng",
+              "reuse": false
+            },
+            {
+              "text": "vip-pack-examine-mng",
+              "link": "/brh-ass/vip-pack-examine",
+              "i18n": "vip-pack-examine-mng",
+              "shortcut": true
+            },
+            {
+              "text": "vip-pack-account-mng",
+              "link": "/brh-ass/vip-pack-account",
+              "i18n": "vip-pack-account-mng"
+            }
+          ]
+        },
+        {
+          "text": "统计查询",
+          "i18n": "count-find-mng",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "online-diag-mng",
+              "link": "/brh-ass/online-diag",
+              "i18n": "online-diag-mng",
+              "reuse": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "公卫服务",
+      "i18n": "public-health",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "icon": "anticon antanticon anticon-appstore-o",
+          "text": "档案管理",
+          "i18n": "profile-mng",
+          "children": [
+            {
+              "text": "search-pub-profile",
+              "link": "/brh-ass/profile-search",
+              "i18n": "search-pub-profile",
+              "reuse": false,
+              "shortcut": true
+            },
+            {
+              "text": "hos-private-profile",
+              "link": "/brh-ass/profile",
+              "i18n": "hos-private-profile"
+            },
+            {
+              "text": "profile-transfer-in",
+              "link": "/brh-ass/profile-transfer-in",
+              "i18n": "profile-transfer-in"
+            },
+            {
+              "text": "profile-transfer-out",
+              "link": "/brh-ass/profile-transfer-out",
+              "i18n": "profile-transfer-out"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

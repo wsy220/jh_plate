@@ -1,0 +1,273 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style m="text/css">
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+
+    .shu {
+      margin: 0 auto;
+      width: 20px;
+      line-height: 24px;
+    }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.48pt" cellspacing="0">
+    <tr style="height:19pt">
+      <td style="width:85pt;" colspan="2"><p class="s1" style="text-align: center;">治疗月序</p></td>
+      <td style="width:500pt;">
+        第<input [(ngModel)]="i.zhiliaoyuexu" name="zhiliaoyuexu"/> 月
+      </td>
+    </tr>
+    <tr style="height:25pt">
+      <td style="width:85pt;" colspan="2"><p class="s1" style="text-align: center;">督导人员</p></td>
+      <td style="width:105pt;">
+        <nz-radio-group [(ngModel)]="i.dudaorenyuan" name="dudaorenyuan">
+          <label nz-radio nzValue="医生">医生</label>
+          <label nz-radio nzValue="家属">家属</label>
+          <label nz-radio nzValue="自服药">自服药</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:85pt;" colspan="2"><p class="s1" style="text-align: center;">随访方式</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="i.suifangfangshi" name="suifangfangshi">
+          <label nz-radio nzValue="门诊">门诊</label>
+          <label nz-radio nzValue="家庭">家庭</label>
+          <label nz-radio nzValue="电话">电话</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:85pt;" colspan="2" rowspan="2">
+        <p class="s1" style="text-align: center;">症状及体征</p>
+      </td>
+      <td
+        style="width:105pt;">
+        <label nz-checkbox nzValue="没有症状" [(ngModel)]="i.meiyouzhengzhuang" name="meiyouzhengzhuang">没有症状</label>
+        <label nz-checkbox nzValue="咳嗽咳痰" [(ngModel)]="i.kesouketan" name="kesouketan">咳嗽咳痰</label>
+        <label nz-checkbox nzValue="低热盗汗" [(ngModel)]="i.diredaohan" name="diredaohan">低热盗汗</label>
+        <label nz-checkbox nzValue="咯血或血痰" [(ngModel)]="i.kaxuehuoxuetan" name="kaxuehuoxuetan">咯血或血痰</label>
+        <label nz-checkbox nzValue="胸痛消瘦" [(ngModel)]="i.xiongtongxiaoshou" name="xiongtongxiaoshou">胸痛消瘦</label>
+        <label nz-checkbox nzValue="恶心纳差" [(ngModel)]="i.exinnacha" name="exinnacha">恶心纳差</label><br/>
+        <label nz-checkbox nzValue="头痛失眠" [(ngModel)]="i.toutongshimian" name="toutongshimian">头痛失眠</label>
+        <label nz-checkbox nzValue="视物模糊" [(ngModel)]="i.shiwumohu" name="shiwumohu">视物模糊</label>
+        <label nz-checkbox nzValue="皮肤瘙痒、皮疹" [(ngModel)]="i.pifusaoyangpizhen" name="pifusaoyangpizhen">皮肤瘙痒、皮疹</label>
+        <label nz-checkbox nzValue="耳鸣、听力下降" [(ngModel)]="i.ermingtinglixiajiang" name="ermingtinglixiajiang">耳鸣、听力下降</label>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:105pt;">
+        其他
+        <textarea nz-input [(ngModel)]="i.zhengzhuangjitizhengqita" name="zhengzhuangjitizhengqita"></textarea>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:35pt;"
+        rowspan="2"><p class="s1" style="text-align: center;">生活方式指导</p></td>
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">吸烟</p></td>
+      <td
+        style="width:105pt;">
+        / <input [(ngModel)]="i.xiyan" name="xiyan"/>支/天
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">饮酒</p></td>
+      <td
+        style="width:105pt;">
+        / <input [(ngModel)]="i.yinjiu" name="yinjiu"/> 两/天
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:35pt;" rowspan="4">
+        <p class="s1 shu" style="text-align: center;">用药</p></td>
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">化疗方案</p></td>
+      <td
+        style="width:105pt;">
+        <input [(ngModel)]="i.hualiaofangan" name="hualiaofangan" style="width: 100%"/>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">用 法</p></td>
+      <td
+        style="width:105pt;">
+        <nz-radio-group [(ngModel)]="i.yongfa" name="yongfa">
+          <label nz-radio nzValue="每日">每日</label>
+          <label nz-radio nzValue="间歇">间歇</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">药品剂型</p></td>
+      <td
+        style="width:105pt;">
+        <label nz-checkbox nzValue="固定剂量复合制剂" [(ngModel)]="i.gudingjiliangfuhezhiji" name="gudingjiliangfuhezhiji">固定剂量复合制剂</label>
+        <label nz-checkbox nzValue="散装药" [(ngModel)]="i.sanzhuangyao" name="sanzhuangyao">散装药</label>
+        <label nz-checkbox nzValue="板式组合药" [(ngModel)]="i.banshizuheyao" name="banshizuheyao">板式组合药</label>
+        <label nz-checkbox nzValue="注射剂" [(ngModel)]="i.zhusheji" name="zhusheji">注射剂</label>
+      </td>
+    </tr>
+    <tr style="height:25pt">
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">漏服药次数</p></td>
+      <td style="width:105pt;">
+        <input [(ngModel)]="i.loufuyaocishu" name="loufuyaocishu"/>次
+      </td>
+    </tr>
+    <tr style="height:25pt">
+      <td style="width:85pt;" colspan="2"><p class="s1" style="text-align: center;">药物不良反应</p></td>
+      <td style="width:105pt;">
+        <nz-radio-group [(ngModel)]="i.yaowubuliangfanying" name="yaowubuliangfanying">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:25pt">
+      <td style="width:85pt;" colspan="2"><p class="s1" style="text-align: center;">并发症或合并症</p></td>
+      <td
+        style="width:105pt;">
+        <nz-radio-group [(ngModel)]="i.bingfazhenghuohebingzheng" name="bingfazhenghuohebingzheng">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:18pt">
+      <td style="width:35pt;" rowspan="3">
+        <p class="s1" style="text-align: center;">转 诊</p></td>
+      <td style="width:50pt;">
+        <p class="s1" style="text-align: center;">科 别</p></td>
+      <td style="width:105pt;">
+        <input [(ngModel)]="i.kebie" name="kebie" style="width: 100%"/></td>
+    </tr>
+    <tr style="height:18pt">
+      <td
+        style="width:50pt;">
+        <p class="s1" style="text-align: center;">原 因</p></td>
+      <td
+        style="width:105pt;">
+        <input [(ngModel)]="i.yuanyin" name="yuanyin" style="width: 100%"/></td>
+    </tr>
+    <tr style="height:19pt">
+      <td>
+        <p class="s1" style="text-align: center;">2周内随访随访结果</p></td>
+      <td
+        style="width:105pt;">
+        <input [(ngModel)]="i.liangzhouneisuifangsuifangjieguo" name="liangzhouneisuifangsuifangjieguo" style="width: 100%"/>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:85pt;"
+        colspan="2"><p class="s1" style="text-align: center;">处理意见</p></td>
+      <td
+        style="width:105pt;">
+        <input [(ngModel)]="i.chuliyijian" name="chuliyijian" style="width: 100%"/>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td
+        style="width:85pt;"
+        colspan="2"><p class="s1" style="text-align: center;">下次随访时间</p></td>
+      <td
+        style="width:105pt;">
+        <nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.xiacisuifangshijian" name="xiacisuifangshijian"></nz-date-picker>
+      </td>
+    </tr>
+    <tr style="height:32pt">
+      <td
+        style="width:85pt;"
+        colspan="2"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="padding-left: 10pt;text-indent: 0pt;text-align: left;">停止治疗及原因</p></td>
+      <td
+        style="width:419pt;"
+        colspan="4">1 出现停止治疗时间
+        <nz-date-picker [nzFormat]="dateFormat" [(ngModel)]="i.chuxiantingzhizhiliaoshijian" name="chuxiantingzhizhiliaoshijian"></nz-date-picker>
+        <br/>
+        停止治疗原因
+        <label nz-checkbox nzValue="完成疗程" [(ngModel)]="i.wanchengliaocheng" name="wanchengliaocheng">完成疗程</label>
+        <label nz-checkbox nzValue="死亡" [(ngModel)]="i.siwang" name="siwang">死亡</label>
+        <label nz-checkbox nzValue="丢失" [(ngModel)]="i.diushi" name="diushi">丢失</label>
+        <label nz-checkbox nzValue="转入耐多药治疗" [(ngModel)]="i.zhuanrunaiduoyaozhiliao" name="zhuanrunaiduoyaozhiliao">转入耐多药治疗</label>
+      </td>
+    </tr>
+    <tr style="height:32pt">
+      <td style="width:85pt;" colspan="2" rowspan="2">
+        <p class="s1" style="padding-left: 15pt;text-indent: 0pt;text-align: left;">全程管理情况</p></td>
+      <td style="width:419pt;" colspan="4">
+        应访视患者<input [(ngModel)]="i.yingfangshihuanzhecishu" name="yingfangshihuanzhecishu" nzSize="small" style="width: 8%;"/>次，
+        实际访视<input [(ngModel)]="i.shijifangshicishu" name="shijifangshicishu" nzSize="small" style="width: 8%;"/>次;患者在疗程中，
+        应服药<input [(ngModel)]="i.yingfuyaocishucishu" name="yingfuyaocishucishu" nzSize="small" style="width: 8%;"/>次，<br/>
+        实际服药<input [(ngModel)]="i.shijifuyaocishu" name="shijifuyaocishu" nzSize="small" style="width: 8%;"/>次，
+        服药率<input [(ngModel)]="i.fuyaolv" name="fuyaolv" nzSize="small" style="width: 8%;"/>%
+      </td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+  </div>
+</form>
+</body>
+</html>

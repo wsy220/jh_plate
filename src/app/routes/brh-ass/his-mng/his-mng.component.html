@@ -1,0 +1,33 @@
+<div nz-row nzGutter="24" class="py-lg">
+  <div nz-col nzMd="24" nzLg="24">
+    <nz-card [nzBordered]="false" class="mb-lg" [nzLoading]="nzLoading">
+      <ng-container *ngIf="his">
+        <div class="avatarHolder">
+          <img src="{{his.hosImg}}">
+          <div class="name">{{his.name}}</div>
+          <div [innerHtml]="his.introduction"></div>
+        </div>
+        <div class="detail">
+          <p>
+            <i class="address"></i>
+            {{his.address}}
+          </p>
+        </div>
+        <nz-divider nzDashed></nz-divider>
+        <div class="team">
+          <div class="teamTitle">家庭医生团队</div>
+          <nz-spin [nzSpinning]="!team">
+            <div nz-row nzGutter="36">
+              <div nz-col *ngFor="let t of team" nzLg="24" nzXl="12">
+                <div class="text-truncate">
+                  <nz-avatar [nzSrc]="t.logo" nzSize="small"></nz-avatar>
+                  {{t.name}}
+                </div>
+              </div>
+            </div>
+          </nz-spin>
+        </div>
+      </ng-container>
+    </nz-card>
+  </div>
+</div>

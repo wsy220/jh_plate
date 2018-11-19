@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}角色</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">角色编码</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.roleCode" name="roleCode" maxlength="30" required/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">角色名称</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <input nz-input [(ngModel)]="i.roleName" name="roleName" maxlength="30" required/>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="6">角色类型</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <nz-select style="width: 100%;" nzAllowClear nzPlaceHolder="角色类型" [(ngModel)]="i.roleType" name="roleType">
+
+
+        <nz-option nzValue="dc-type" nzLabel="医护"></nz-option>
+        <nz-option nzValue="org" nzLabel="机构"></nz-option>
+        <nz-option nzValue="health" nzLabel="卫生"></nz-option>
+        <nz-option nzValue="plat" nzLabel="系统"></nz-option>
+        <nz-option nzValue="platform" nzLabel="平台"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzLoading]="http.loading" [nzType]="'primary'">保存
+    </button>
+  </div>
+</form>

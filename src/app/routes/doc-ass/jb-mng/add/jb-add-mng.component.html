@@ -1,0 +1,51 @@
+<form nz-form [nzLayout]="'vertical'">
+  <div>
+    <nz-row nzGutter="8">
+      <nz-col nzLg="12" nzMd="12" nzSm="24">
+        <nz-form-item>
+          <nz-form-label nzRequired>疾病名称</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="item.name" name="name" maxlength="20"
+                   placeholder="请输入疾病名称"/>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <!--<nz-col nzLg="12" nzMd="12" nzSm="24">-->
+        <!--<nz-form-item>-->
+          <!--<nz-form-label nzRequired>商品名称</nz-form-label>-->
+          <!--<nz-form-control>-->
+            <!--<input nz-input [(ngModel)]="item.spname" name="phone" maxlength="20" required-->
+                   <!--placeholder="请输入商品名称"/>-->
+          <!--</nz-form-control>-->
+        <!--</nz-form-item>-->
+      <!--</nz-col>-->
+      <nz-divider nzDashed></nz-divider>
+      <nz-tag *ngFor="let tag of item.tags; let i = index;" [nzMode]="'closeable'" (nzAfterClose)="handleClose(tag)">
+        {{ sliceTagName(tag) }}
+      </nz-tag>
+      <nz-tag *ngIf="!inputVisible" class="editable-tag" (click)="showInput()" [nzColor]="'red'">
+        <i class="anticon anticon-plus"></i> 新搜索标签
+      </nz-tag>
+      <input #inputElement nz-input nzSize="small" *ngIf="inputVisible" type="text" [(ngModel)]="inputValue"
+             name="inputValue"
+             style="width: 78px;" (blur)="handleInputConfirm()" (keydown.enter)="handleInputConfirm()">
+      <nz-divider nzDashed></nz-divider>
+      <nz-tag *ngFor="let tag of item.yptags; let i = index;" [nzMode]="'closeable'"
+              (nzAfterClose)="handleCloseyp(tag)">
+        {{ sliceTagName(tag) }}
+      </nz-tag>
+      <nz-tag *ngIf="!inputVisibleJb" class="editable-tag" (click)="showInputjb()" [nzColor]="'green'">
+        <i class="anticon anticon-plus"></i> 新药品标签
+      </nz-tag>
+      <input #inputElementJb nz-input nzSize="small" *ngIf="inputVisibleJb" type="text" [(ngModel)]="inputValueJb"
+             name="inputValueJb"
+             style="width: 78px;" (blur)="handleInputConfirmjb()" (keydown.enter)="handleInputConfirmjb()">
+      <nz-divider nzDashed></nz-divider>
+      <nz-form-label nzSpan="24" nzRequired>内容</nz-form-label>
+      <nz-form-control nzSpan="24">
+        <ckeditor height="100" [(ngModel)]="item.content" [config]="config" id="content" name="content"
+                  debounce="500"></ckeditor>
+      </nz-form-control>
+    </nz-row>
+  </div>
+</form>

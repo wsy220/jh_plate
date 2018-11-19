@@ -1,0 +1,68 @@
+<div #print_div>
+  <div class="h1 text-center"> 家庭医生签约合约文书</div>
+  <div class="h3 text-center"> (基础性服务包)</div>
+  <div class="h5 text-right"> 合同编号：<span>{{basecontract.sno}}</span></div>
+  <div class="h5 text-left"> 甲方（居民）：<span>{{basecontract.patientName}}</span></div>
+  <div class="h5 text-left"> 身份证号：<span>{{basecontract.idCardNo}}</span></div>
+  <div class="h5 text-left"> 社保（医保）卡号：<span>{{basecontract.socialNo}}</span></div>
+  <div class="h5 text-left"> 联系电话：<span>{{basecontract.phone}}</span></div>
+  <div class="h5 text-left"> 紧急联系人及联系电话：<span>{{basecontract.secondName}}</span>
+    <span>{{basecontract.secondPhone}}</span></div>
+  <div class="h5 text-left"> 住址：<span>{{basecontract.secondAddr}}</span></div>
+  <div class="h5 text-left"> 乙方（家庭医生团队）：<span>{{basecontract.fdtName}}</span></div>
+  <div class="h5 text-left"> 市区（县）社区卫生服务中心（乡镇卫生院、社区卫生服务站、村卫生室）</div>
+  <div class="h5 text-left"> 团队主要人员：</div>
+
+  <table border="0" cellpadding="0" cellspacing="0" style="margin-left: 20px;">
+    <tr class="btn-primary">
+      <td width="150px">姓名</td>
+      <td width="150">职位</td>
+    </tr>
+    <tr *ngFor="let it of basecontract.fdtMember; let i = index;">
+      <td>{{it.name}}</td>
+      <td>{{memberTypesDic[it.position] }}</td>
+    </tr>
+  </table>
+
+  <div class="h5 text-left"> 团队联系电话：<span>{{basecontract.fdtPhone}}</span></div>
+
+
+  <div style="margin-top: 10px;">
+    <div [innerHtml]="basecontract.content" style="width: 100%"></div>
+  </div>
+
+
+  <table border="0" cellpadding="0" cellspacing="0" style="margin-left: 20px;">
+    <tr class="btn-primary">
+      <td width="250">甲 方</td>
+      <td width="250">乙 方</td>
+    </tr>
+    <tr>
+      <td width="250">
+        <img src="{{ basecontract.patientImg ? getPathStr(basecontract.patientImg) : 'images/sfzf.png' }}"
+             style="width: 120px;height: 80px;" class="img-thumbnail"/>
+      </td>
+      <td width="250">
+        <img src="{{ basecontract.fdtImg ? getPathStr(basecontract.fdtImg) : 'images/sfzf.png' }}"
+             style="width: 120px;height: 80px;" class="img-thumbnail"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="250">日 期：{{basecontract.startData}}</td>
+      <td width="250">日 期：{{basecontract.startData}}</td>
+    </tr>
+  </table>
+
+  <essence-ng2-print
+    [mode]="'popup'"
+    [popTitle]="''"
+    [btnText]="'打印表格'"
+    [btnClass]="{'btn': true, 'btn-info': true}"
+    [printHTML]="print_div"
+    [printStyle]="printStyle"
+    [printCSS]="printCSS"
+    [showBtn]="printBtnBoolean" #ep>
+  </essence-ng2-print>
+
+
+</div>

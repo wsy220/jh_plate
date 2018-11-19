@@ -1,0 +1,5 @@
+<nz-card [nzBordered]="false">
+  <st #st [data]="url" [req]="{params: args,method:'get',reName:{pi:'page',ps:'rows'}}"
+      [res]="{reName:{list: 'rows',total:'records'}}"
+      [columns]="columns"></st>
+</nz-card>

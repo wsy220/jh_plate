@@ -1,0 +1,115 @@
+<div class="alain-default__content-title">
+  <h1>
+    {{hospital.name}}
+    <small>欢迎登录智慧社区卫生平台</small>
+  </h1>
+</div>
+
+
+<div nz-row nzGutter="16">
+  <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="8">
+    <g2-card [title]="'医护总数'" total="{{data1_count}}" contentHeight="44px" [action]="action1" [footer]="footer1">
+      <ng-template #action1>
+        <nz-tooltip nzTitle="医护人员加入平台总数">
+          <i nz-tooltip class="anticon anticon-info-circle-o"></i>
+        </nz-tooltip>
+      </ng-template>
+      <trend flag="up" style="display:block; margin-top:2px;">医生
+        <span class="pl-sm">{{data1_dc}}</span>
+      </trend>
+      <trend flag="down">护士
+        <span class="pl-sm">{{data1_hr}}</span>
+      </trend>
+      <ng-template #footer1>
+        <p class="text-truncate mb0">平台医护百分比
+          <span class="ml-sm">{{data1_per}}%</span>
+        </p>
+      </ng-template>
+    </g2-card>
+  </div>
+  <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="8">
+    <g2-card [title]="'签约总人数'" total="{{action4Data}}" contentHeight="46px" [action]="action4" [footer]="footer4">
+      <ng-template #action4>
+        <nz-tooltip nzTitle="服务用户数量">
+          <i nz-tooltip class="anticon anticon-info-circle-o"></i>
+        </nz-tooltip>
+      </ng-template>
+      <g2-mini-progress height="46" percent="100" strokeWidth="8" target="100" color="#13C2C2"></g2-mini-progress>
+      <ng-template #footer4>
+        <div class="d-flex justify-content-between">
+          <trend flag="up">签约总人数
+            <span class="pl-sm">{{action4Data}}</span>
+          </trend>
+        </div>
+      </ng-template>
+    </g2-card>
+  </div>
+  <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="8">
+    <g2-card [title]="'已开通权限'" total="{{action3Data}}" contentHeight="46px" [action]="action3" [footer]="footer3">
+      <ng-template #action3>
+        <nz-tooltip nzTitle="已开通权限">
+          <i nz-tooltip class="anticon anticon-info-circle-o"></i>
+        </nz-tooltip>
+      </ng-template>
+      <g2-mini-bar height="46" [data]="visitData"></g2-mini-bar>
+      <ng-template #footer3>
+        <p class="text-truncate mb0">总权限个数
+          <span class="ml-sm">{{action3Tl}}</span>
+        </p>
+      </ng-template>
+    </g2-card>
+  </div>
+
+</div>
+
+<div nz-row nzGutter="16">
+  <!--<div nz-col nzXs="24" nzMd="12">-->
+  <!--<nz-card [nzBordered]="false" [nzTitle]="salesTitle1">-->
+  <!--<ng-template #salesTitle1>-->
+  <!--家庭医生签约-->
+  <!--<small class="text-sm font-weight-normal">数据统计</small>-->
+  <!--</ng-template>-->
+  <!--<g2-pie-->
+  <!--[hasLegend]="true"-->
+  <!--title="签约人数"-->
+  <!--subTitle="签约人数"-->
+  <!--[total]="total"-->
+  <!--[hasLegend]="false"-->
+  <!--[valueFormat]="format"-->
+  <!--[data]="salesPieData"-->
+  <!--height="200"></g2-pie>-->
+  <!--</nz-card>-->
+  <!--</div>-->
+  <div nz-col nzXs="24" nzMd="24">
+    <nz-card [nzBordered]="false" [nzTitle]="salesTitle2">
+      <ng-template #salesTitle2>
+        家庭医生团队签约
+        <small class="text-sm font-weight-normal">数据统计</small>
+      </ng-template>
+      <g2-bar height="335" [data]="salesData"></g2-bar>
+    </nz-card>
+  </div>
+
+  <!--<div nz-col nzXs="24" nzMd="12">-->
+  <!--<nz-card [nzBordered]="false" [nzTitle]="salesTitle3">-->
+  <!--<ng-template #salesTitle3>-->
+  <!--个性服务包-->
+  <!--<small class="text-sm font-weight-normal">数据统计</small>-->
+  <!--</ng-template>-->
+  <!--<g2-bar height="335" [title]="'销售额趋势'" [data]="salesData"></g2-bar>-->
+  <!--</nz-card>-->
+  <!--</div>-->
+
+  <!--<div nz-col nzXs="24" nzMd="12">-->
+  <!--<nz-card [nzBordered]="false" [nzTitle]="salesTitle4">-->
+  <!--<ng-template #salesTitle4>-->
+  <!--上门服务接单-->
+  <!--<small class="text-sm font-weight-normal">数据统计</small>-->
+  <!--</ng-template>-->
+  <!--<g2-timeline-->
+  <!--[data]="chartData"-->
+  <!--[titleMap]="{y1: '客流量', y2: '支付笔数'}"-->
+  <!--[height]="355"></g2-timeline>-->
+  <!--</nz-card>-->
+  <!--</div>-->
+</div>

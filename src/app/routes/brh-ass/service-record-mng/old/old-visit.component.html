@@ -1,0 +1,268 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    .h2 {
+      color: black;
+      font-family: "Times New Roman", serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s3 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      /*text-decoration: underline;*/
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.944pt" cellspacing="0">
+    <tr style="height:20pt">
+      <td style="width:110pt;" rowspan="2">
+        <p class="s3" style="padding-left: 38pt;padding-right: 17pt;text-indent: -21pt;line-height: 139%;text-align: left;">评估事项、内容 与评分</p></td>
+      <td style="width:600pt;" colspan="6"><p class="s3" style="padding-top: 2pt;text-indent: 0pt;text-align: center;">程度等级</p></td>
+    </tr>
+    <tr style="height:39pt">
+      <td style="width:64pt;">
+        <p class="s3" style="padding-left: 15pt;text-indent: 0pt;text-align: left;">可自理</p></td>
+      <td style="width:71pt;">
+        <p class="s3" style="padding-left: 14pt;text-indent: 0pt;text-align: left;">轻度依赖</p></td>
+      <td style="width:78pt;">
+        <p class="s3" style="padding-left: 17pt;text-indent: 0pt;text-align: left;">中度依赖</p></td>
+      <td style="width:64pt;">
+        <p class="s3" style="padding-left: 10pt;text-indent: 0pt;text-align: left;">不能自理</p></td>
+      <td style="width:36pt;">
+        <p class="s3" style="padding-left: 7pt;padding-right: 7pt;text-indent: 0pt;line-height: 19pt;text-align: left;">判断 评分</p></td>
+    </tr>
+    <tr style="height:60pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">进餐：使用餐具将饭 菜送入口、咀嚼、吞 咽等活动</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 10pt;text-indent: 0pt;text-align: left;">独立完成</p></td>
+      <td style="width:71pt;"><p
+        style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s3" style="padding-top: 8pt;text-indent: 0pt;text-align: center;">—</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">需要协助，如 切碎、搅拌食 物等</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;line-height: 139%;text-align: left;">完全需要帮助</p></td>
+      <td style="width:36pt;" rowspan="1">
+      </td>
+    </tr>
+    <tr style="height:18pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">评分</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">3</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">5</p></td>
+      <td style="width:36pt;">
+        <nz-select [(ngModel)]="i.jincan" name="jincan" required [nzAllowClear]="false">
+          <nz-option [nzLabel]="0" [nzValue]=0></nz-option>
+          <nz-option [nzLabel]="3" [nzValue]=3></nz-option>
+          <nz-option [nzLabel]="5" [nzValue]=5></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr style="height:98pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">梳洗：梳头、洗脸、 刷牙、剃须、洗澡等 活动</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 10pt;text-indent: 0pt;text-align: left;">独立完成</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;line-height: 138%;text-align: left;">能独立地洗 头、梳头、洗脸、刷牙、剃须等；洗澡需要协助</p>
+      </td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">在协助下和适 当的时间内，能完成部分梳 洗活动</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;line-height: 138%;text-align: left;">完全需要帮助</p></td>
+      <td style="width:36pt;" rowspan="1">
+      </td>
+    </tr>
+    <tr style="height:18pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">评分</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">1</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">3</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">7</p></td>
+      <td style="width:36pt;" rowspan="1">
+        <nz-select [(ngModel)]="i.shuxi" name="shuxi" required [nzAllowClear]="false">
+          <nz-option [nzLabel]="0" [nzValue]=0></nz-option>
+          <nz-option [nzLabel]="1" [nzValue]=1></nz-option>
+          <nz-option [nzLabel]="3" [nzValue]=3></nz-option>
+          <nz-option [nzLabel]="7" [nzValue]=7></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr style="height:60pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;line-height: 139%;text-align: left;">穿衣：穿衣裤、袜子、 鞋子等活动</p></td>
+      <td style="width:64pt;"><p
+        style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s3" style="padding-top: 8pt;padding-left: 10pt;text-indent: 0pt;text-align: left;">独立完成</p></td>
+      <td style="width:71pt;"><p
+        style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s3" style="padding-top: 8pt;text-indent: 0pt;text-align: center;">—</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">需要协助，在 适当的时间内 完成部分穿衣</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;line-height: 139%;text-align: left;">完全需要帮 助</p></td>
+      <td style="width:36pt;" rowspan="1">
+      </td>
+    </tr>
+    <tr style="height:18pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">评分</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">3</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">5</p></td>
+      <td style="width:36pt;" rowspan="1">
+        <nz-select [(ngModel)]="i.chuanyi" name="chuanyi" required [nzAllowClear]="false">
+          <nz-option [nzLabel]="0" [nzValue]=0></nz-option>
+          <nz-option [nzLabel]="1" [nzValue]=1></nz-option>
+          <nz-option [nzLabel]="3" [nzValue]=3></nz-option>
+          <nz-option [nzLabel]="7" [nzValue]=7></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr style="height:79pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: left;">如厕：小便、大便等 活动及自控</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 15pt;padding-right: 5pt;text-indent: -10pt;line-height: 138%;text-align: left;">不需协助， 可自控</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 4pt;text-indent: 0pt;line-height: 138%;text-align: left;">偶尔失禁，但 基本上能如 厕或使用便 具</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">经常失禁，在 很多提示和协 助下尚能如厕 或使用便具</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;line-height: 138%;text-align: justify;">完全失禁， 完全需要帮 助</p></td>
+      <td style="width:36pt;" rowspan="1">
+      </td>
+    </tr>
+    <tr style="height:18pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">评分</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">1</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">5</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">10</p></td>
+      <td style="width:36pt;" rowspan="1">
+        <nz-select [(ngModel)]="i.ruce" name="ruce" required [nzAllowClear]="false">
+          <nz-option [nzLabel]="0" [nzValue]=0></nz-option>
+          <nz-option [nzLabel]="1" [nzValue]=1></nz-option>
+          <nz-option [nzLabel]="3" [nzValue]=3></nz-option>
+          <nz-option [nzLabel]="7" [nzValue]=7></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr style="height:98pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">活动：站立、室内行 走、上下楼梯、户外 活动</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 15pt;padding-right: 5pt;text-indent: -10pt;line-height: 138%;text-align: left;">独立完成所 有活动</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 2pt;text-indent: 0pt;line-height: 138%;text-align: left;">借助较小的 外力或辅助 装置能完成 站立、行走、 上下楼梯等</p>
+      </td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 9pt;text-indent: 0pt;line-height: 138%;text-align: justify;">借助较大的外 力才能完成站 立、行走，不 能上下楼梯</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 2pt;padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;line-height: 138%;text-align: justify;">卧床不起， 活动完全需 要帮助</p></td>
+      <td style="width:36pt;" rowspan="1">
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:110pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">评分</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">0</p></td>
+      <td style="width:71pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">1</p></td>
+      <td style="width:78pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">5</p></td>
+      <td style="width:64pt;"><p
+        class="s3" style="padding-top: 1pt;text-indent: 0pt;text-align: center;">10</p></td>
+      <td style="width:36pt;" rowspan="1">
+        <nz-select [(ngModel)]="i.huodong" name="huodong" required [nzAllowClear]="false">
+          <nz-option [nzLabel]="0" [nzValue]=0></nz-option>
+          <nz-option [nzLabel]="1" [nzValue]=1></nz-option>
+          <nz-option [nzLabel]="3" [nzValue]=3></nz-option>
+          <nz-option [nzLabel]="7" [nzValue]=7></nz-option>
+        </nz-select>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:387pt;"
+          colspan="5"><p class="s3" style="padding-top: 3pt;text-indent: 0pt;text-align: center;">总得分</p></td>
+      <td style="width:36pt;">{{i.jincan+i.shuxi+i.chuanyi+i.ruce+i.huodong}}</td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button type="button" nz-button m="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>0-3岁儿童健康管理服务规范</title>
+  <meta name="author" content="XIAOFENG"/>
+  <style type="text/css">
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    .h2 {
+      color: black;
+      font-family: "Times New Roman", serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+
+    .s2 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 4.5pt;
+      vertical-align: 4pt;
+    }
+
+    .s3 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: underline;
+      font-size: 9pt;
+    }
+
+    .s4 {
+      color: black;
+      font-family: "Times New Roman", serif;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.064pt" cellspacing="0">
+    <tr style="height:24pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 36pt;text-indent: 0pt;text-align: left;">项 目</p></td>
+      <td
+        style="width:600pt;">
+        <p class="s1" style="padding-top: 7pt;padding-left: 25pt;text-indent: 0pt;text-align: left;">第 {{t}} 次</p></td>
+    </tr>
+    <!--<tr style="height:24pt">-->
+    <!--<td-->
+    <!--style="width:115pt;"-->
+    <!--colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 17pt;text-indent: 0pt;text-align: left;">(随访/督促)日期</p></td>-->
+    <!--<td-->
+    <!--style="width:83pt;"></td>-->
+    <!--</tr>-->
+    <tr style="height:24pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 36pt;text-indent: 0pt;text-align: left;">孕 周</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.yunzhou" name="yunzhou"/>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:115pt;" colspan="2">
+        <p class="s1" style="padding-left: 36pt;text-indent: 0pt;text-align: left;">主 诉</p></td>
+      <td style="width:83pt;">
+        <textarea nz-input [(ngModel)]="i.zhusu" name="zhusu"></textarea>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 30pt;text-indent: 0pt;text-align: left;">体重（kg）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.tizhong" name="tizhong"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:23pt;"
+        rowspan="4"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="padding-left: 5pt;padding-right: 5pt;text-indent: 0pt;text-align: justify;">产 科 检 查</p></td>
+      <td
+        style="width:92pt;">
+        <p class="s1" style="padding-top: 2pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">宫底高度（cm）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.gongdigaodu" name="gongdigaodu"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:92pt;">
+        <p class="s1" style="padding-top: 2pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">腹围（cm）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.fuwei" name="fuwei"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:92pt;">
+        <p class="s1" style="padding-top: 2pt;padding-left: 24pt;text-indent: 0pt;text-align: left;">胎 位</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.taiwei" name="taiwei"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:92pt;">
+        <p class="s1" style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">胎心率（次/分钟）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.taixinlv" name="taixinlv"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 25pt;text-indent: 0pt;text-align: left;">血压（mmHg）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:26pt;" [(ngModel)]="i.gaoya" name="gaoya"/>/<input style="width:26pt;" [(ngModel)]="i.diya" name="diya"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p class="s1" style="padding-top: 2pt;padding-left: 17pt;text-indent: 0pt;text-align: left;">血红蛋白（g/L）</p></td>
+      <td
+        style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.xuehongdanbai" name="xuehongdanbai"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td style="width:115pt;" colspan="2"><p class="s1" style="padding-top: 2pt;text-indent: 0pt;text-align: center;">尿蛋白</p></td>
+      <td style="width:83pt;">
+        <input style="width:100%;" [(ngModel)]="i.niaodanbai" name="niaodanbai"/>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:115pt;" colspan="2">
+        <p class="s1" style="padding-left: 23pt;text-indent: 0pt;text-align: left;">其他辅助检查*</p></td>
+      <td>
+        <textarea nz-input [(ngModel)]="i.qitafuzhujiancha" name="qitafuzhujiancha"></textarea>
+      </td>
+    </tr>
+    <tr style="height:53pt">
+      <td style="width:115pt;" colspan="2"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="padding-left: 36pt;text-indent: 0pt;text-align: left;">分 类</p></td>
+      <td style="width:83pt;">
+        <nz-radio-group [(ngModel)]="i.fenlei" name="fenlei">
+          <label nz-radio nzValue="未见异常">未见异常</label>
+          <label nz-radio nzValue="异常">异常</label>
+          <input style="width:106pt;" [(ngModel)]="i.xinzangyichangxiangqing" name="xinzangyichangxiangqing"/>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:110pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="padding-left: 36pt;text-indent: 0pt;text-align: left;">指 导</p></td>
+      <td style="width:83pt;" *ngIf="t===2">
+        <label nz-checkbox nzValue="生活方式" [(ngModel)]="i.shenghuofangshi" name="shenghuofangshi">生活方式</label>
+        <label nz-checkbox nzValue="营养" [(ngModel)]="i.yingyang" name="yingyang">营养</label>
+        <label nz-checkbox nzValue="心理" [(ngModel)]="i.xinli" name="xinli">心理</label>
+        <label nz-checkbox nzValue="死产" [(ngModel)]="i.yundong" name="yundong">运动</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.qita" name="qita">其他</label>
+      </td>
+      <td style="width:83pt;" *ngIf="t===3">
+        <label nz-checkbox nzValue="生活方式" [(ngModel)]="i.shenghuofangshi" name="shenghuofangshi">生活方式</label>
+        <label nz-checkbox nzValue="营养" [(ngModel)]="i.yingyang" name="yingyang">营养</label>
+        <label nz-checkbox nzValue="心理" [(ngModel)]="i.xinli" name="xinli">心理</label>
+        <label nz-checkbox nzValue="死产" [(ngModel)]="i.yundong" name="yundong">运动</label>
+        <label nz-checkbox nzValue="自我监护" [(ngModel)]="i.ziwojianhu" name="ziwojianhu">自我监护</label>
+        <label nz-checkbox nzValue="母乳喂养" [(ngModel)]="i.muruweiyang" name="muruweiyang">母乳喂养</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.qita" name="qita">其他</label>
+      </td>
+      <td style="width:83pt;" *ngIf="t===4||t===5">
+        <label nz-checkbox nzValue="生活方式" [(ngModel)]="i.shenghuofangshi" name="shenghuofangshi">生活方式</label>
+        <label nz-checkbox nzValue="营养" [(ngModel)]="i.yingyang" name="yingyang">营养</label>
+        <label nz-checkbox nzValue="心理" [(ngModel)]="i.xinli" name="xinli">心理</label>
+        <label nz-checkbox nzValue="死产" [(ngModel)]="i.yundong" name="yundong">运动</label>
+        <label nz-checkbox nzValue="自我监测" [(ngModel)]="i.ziwojiance" name="ziwojiance">自我监测</label>
+        <label nz-checkbox nzValue="分娩准备" [(ngModel)]="i.fenmianzhunbei" name="fenmianzhunbei">分娩准备</label>
+        <label nz-checkbox nzValue="母乳喂养" [(ngModel)]="i.muruweiyang" name="muruweiyang">母乳喂养</label>
+        <label nz-checkbox nzValue="其他" [(ngModel)]="i.qita" name="qita">其他</label>
+    </tr>
+    <tr style="height:58pt">
+      <td
+        style="width:115pt;"
+        colspan="2"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="padding-left: 36pt;text-indent: 0pt;text-align: left;">转 诊</p></td>
+      <td style="width:438pt;" colspan="11">
+        <nz-radio-group [(ngModel)]="i.zhuanzhenjianyi" name="zhuanzhenjianyi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        原因：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenyuanyin" name="zhuanzhenyuanyin"/>
+        机构及科室：<input style="width:86pt;" [(ngModel)]="i.zhuanzhenjigou" name="zhuanzhenjigou"/>
+      </td>
+    </tr>
+    <tr style="height:24pt">
+      <td style="width:115pt;" colspan="2">
+        <p class="s1" style="padding-top: 2pt;padding-left: 25pt;text-indent: 0pt;text-align: left;">下次随访日期</p>
+      </td>
+      <td style="width:83pt;">
+        <nz-date-picker [(ngModel)]="i.xiacisuifangriqi" name="xiacisuifangriqi" [nzFormat]="dateFormat"></nz-date-picker>
+      </td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button type="button" nz-button m="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+  </div>
+</form>
+</body>
+</html>

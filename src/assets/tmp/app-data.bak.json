@@ -1,0 +1,215 @@
+{
+  "app": {
+    "name": "柒拾佳护健康管理",
+    "description": "70 柒拾 柒拾佳护 健康管理 健康"
+  },
+  "user": {
+    "name": "Admin",
+    "avatar": "./assets/tmp/img/avatar.jpg",
+    "email": "cipchk@qq.com"
+  },
+  "menu": [
+    {
+      "text": "主导航",
+      "i18n": "main_navigation",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "首页",
+          "i18n": "dashboard_v1",
+          "link": "/dashboard/v1",
+          "icon": "anticon antanticon anticon-appstore"
+        },
+        {
+          "text": "快捷菜单",
+          "i18n": "shortcut",
+          "icon": "anticon antanticon anticon-rocket",
+          "shortcutRoot": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "系统管理",
+      "i18n": "sys-mng",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "权限管理",
+          "i18n": "role-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "user-mng",
+              "link": "/sys-ass/user",
+              "i18n": "user-mng",
+              "reuse": false
+            },
+            {
+              "text": "role-mng",
+              "link": "/sys-ass/role",
+              "i18n": "role-mng"
+            },
+            {
+              "text": "menu-mng",
+              "link": "/dashboard/workplace",
+              "i18n": "menu-mng"
+            }
+          ]
+        },
+        {
+          "text": "参数管理",
+          "i18n": "param-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "user-mng",
+              "link": "/sys-ass/user",
+              "i18n": "user-mng",
+              "reuse": false
+            },
+            {
+              "text": "role-mng",
+              "link": "/dashboard/monitor",
+              "i18n": "role-mng"
+            },
+            {
+              "text": "menu-mng",
+              "link": "/dashboard/workplace",
+              "i18n": "menu-mng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "家庭医生",
+      "i18n": "home-dc",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "家医管理",
+          "i18n": "home-dc-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "team-mng",
+              "link": "/brh-ass/team",
+              "i18n": "team-mng",
+              "reuse": false,
+              "shortcut": true
+            },
+            {
+              "text": "contract-mng",
+              "link": "/brh-ass/contract",
+              "i18n": "contract-mng"
+            },
+            {
+              "text": "archives-mng",
+              "link": "/brh-ass/archives",
+              "i18n": "archives-mng"
+            }
+          ]
+        },
+        {
+          "text": "统计查询",
+          "i18n": "count-find-mng",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "online-diag-mng",
+              "link": "/sys-ass/user",
+              "i18n": "online-diag-mng",
+              "reuse": false,
+              "shortcut": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "上门服务",
+      "i18n": "door-se",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "权限管理",
+          "i18n": "role-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "user-mng",
+              "link": "/sys-ass/user",
+              "i18n": "user-mng",
+              "reuse": false
+            },
+            {
+              "text": "role-mng",
+              "link": "/sys-ass/role",
+              "i18n": "role-mng"
+            },
+            {
+              "text": "menu-mng",
+              "link": "/dashboard/workplace",
+              "i18n": "menu-mng"
+            }
+          ]
+        },
+        {
+          "text": "参数管理",
+          "i18n": "param-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "user-mng",
+              "link": "/sys-ass/user",
+              "i18n": "user-mng",
+              "reuse": false
+            },
+            {
+              "text": "role-mng",
+              "link": "/dashboard/monitor",
+              "i18n": "role-mng"
+            },
+            {
+              "text": "menu-mng",
+              "link": "/dashboard/workplace",
+              "i18n": "menu-mng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "线上服务",
+      "i18n": "online-dc",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "订单查询",
+          "i18n": "order-mng-all",
+          "icon": "anticon antanticon anticon-home",
+          "children": [
+            {
+              "text": "order-mng",
+              "link": "/brh-ass/team",
+              "i18n": "order-mng",
+              "reuse": false,
+              "shortcut": true
+            },
+            {
+              "text": "back-order-mng",
+              "link": "/brh-ass/contract",
+              "i18n": "back-order-mng"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

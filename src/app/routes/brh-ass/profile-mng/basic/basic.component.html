@@ -1,0 +1,458 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style type="text/css">
+    td {
+      border-top-style: solid;
+      border-top-width: 1pt;
+      border-left-style: solid;
+      border-left-width: 1pt;
+      border-bottom-style: solid;
+      border-bottom-width: 1pt;
+      border-right-style: solid;
+      border-right-width: 1pt;
+    }
+
+    input {
+      border-bottom: 1px solid #dbdbdb;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
+    p {
+      color: black;
+      font-family: "Microsoft JhengHei", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 12pt;
+      margin: 0pt;
+    }
+
+    h1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14pt;
+    }
+
+    .s1 {
+      color: black;
+      font-family: 宋体;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: none;
+      font-size: 9pt;
+    }
+
+    .shu {
+      margin: 0 auto;
+      width: 20px;
+      line-height: 24px;
+    }
+  </style>
+</head>
+<body>
+<div class="modal-header">
+  <div class="modal-title">个人基本信息</div>
+</div>
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <table style="border-collapse:collapse;margin-left:5.84pt" cellspacing="0">
+    <tr style="height:21pt">
+      <td style="width:69pt;"><p class="s1" style="text-align: center;">工作单位</p></td>
+      <td style="width:168pt;" colspan="3">
+        <input style="width: 100%;" [(ngModel)]="basicInfo.gongzuodanwei" name="gongzuodanwei"/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:94pt;">
+        <p class="s1" style="text-align: center;">联系人姓名</p></td>
+      <td>
+        <input style="width: 150pt;" [(ngModel)]="basicInfo.lianxirenxingming" name="lianxirenxingming"/>
+      </td>
+      <td style="width:100pt;"><p class="s1" style="text-align: center;">联系人电话</p></td>
+      <td>
+        <input style="width: 250pt;" [(ngModel)]="basicInfo.lianxirendianhua" name="lianxirendianhua"/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">常住类型</p></td>
+      <td style="width:172pt;">
+        <nz-radio-group [(ngModel)]="basicInfo.changzhuleixing" name="changzhuleixing">
+          <label nz-radio nzValue="户籍">户籍</label>
+          <label nz-radio nzValue="非户籍">非户籍</label>
+        </nz-radio-group>
+      </td>
+      <td style="width:69pt;"><p class="s1" style="text-align: center;">民 族</p></td>
+      <td style="width:168pt;">
+        <nz-radio-group [(ngModel)]="basicInfo.minzu" name="minzu">
+          <label nz-radio nzValue="汉族">汉族</label>
+          <label nz-radio nzValue="少数民族">少数民族</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">血 型</p></td>
+      <td style="width:409pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.xuexing" name="xuexing">
+          <label nz-radio nzValue="A型">A型</label>
+          <label nz-radio nzValue="B型">B型</label>
+          <label nz-radio nzValue="O型">O型</label>
+          <label nz-radio nzValue="AB型">AB型</label>
+        </nz-radio-group>
+        /
+        <nz-radio-group [(ngModel)]="basicInfo.RH" name="RH">
+          <label nz-radio nzValue="阴性">阴性</label>
+          <label nz-radio nzValue="阳性">阳性</label>
+          <label nz-radio nzValue="不详">不详</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:33pt">
+      <td style="width:64pt;">
+        <p class="s1 shu" style="text-align: center;">文化程度</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="basicInfo.wenhuachengdu" name="wenhuachengdu">
+          <label nz-radio nzValue="研究生">研究生</label><br/>
+          <label nz-radio nzValue="大学本科">大学本科</label><br/>
+          <label nz-radio nzValue="大学专科和专科学校">大学专科和专科学校</label><br/>
+          <label nz-radio nzValue="中等专业学校">中等专业学校</label><br/>
+          <label nz-radio nzValue="技工学校">技工学校</label><br/>
+          <label nz-radio nzValue="高中">高中</label><br/>
+          <label nz-radio nzValue="初中">初中</label><br/>
+          <label nz-radio nzValue="小学">小学</label><br/>
+          <label nz-radio nzValue="文盲或半文盲">文盲或半文盲</label><br/>
+          <label nz-radio nzValue="不详">不详</label>
+        </nz-radio-group>
+      </td>
+      <td style="width:64pt;">
+        <p class="s1 shu" style="text-align: center;">职 业</p></td>
+      <td>
+        <nz-radio-group [(ngModel)]="basicInfo.zhiye" name="zhiye">
+          <label nz-radio nzValue="国家机关、党群组织、企业、事业单位负责人">国家机关、党群组织、企业、事业单位负责人</label><br/>
+          <label nz-radio nzValue="专业技术人员">专业技术人员</label><br/>
+          <label nz-radio nzValue="办事人员和有关人员">办事人员和有关人员</label><br/>
+          <label nz-radio nzValue="商业、服务业人员">商业、服务业人员</label><br/>
+          <label nz-radio nzValue="农、林、牧、渔、水利业生产人员">农、林、牧、渔、水利业生产人员</label><br/>
+          <label nz-radio nzValue="生产、运输设备操作人员及有关人员">生产、运输设备操作人员及有关人员</label><br/>
+          <label nz-radio nzValue="军人">军人</label><br/>
+          <label nz-radio nzValue="不便分类的其他从业人员">不便分类的其他从业人员</label><br/>
+          <label nz-radio nzValue="无职业">无职业</label><br/>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">婚姻状况</p></td>
+      <td style="width:277pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.hunyinzhuangkuang" name="hunyinzhuangkuang">
+          <label nz-radio nzValue="未婚">未婚</label>
+          <label nz-radio nzValue="已婚">已婚</label>
+          <label nz-radio nzValue="丧偶">丧偶</label>
+          <label nz-radio nzValue="离婚">离婚</label>
+          <label nz-radio nzValue="未说明的婚姻状况">未说明的婚姻状况</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:33pt">
+      <td style="width:64pt;"><p class="s1" style="text-align: center;">医疗费用<br/>支付方式</p></td>
+      <td style="width:409pt;" colspan="3">
+        <label nz-checkbox [(ngModel)]="basicInfo.chengzhenzhigongjibenyiliaobaoxian" name="chengzhenzhigongjibenyiliaobaoxian">城镇职工基本医疗保险</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.chengzhenjuminjibenyiliaobaoxian" name="chengzhenjuminjibenyiliaobaoxian">城镇居民基本医疗保险</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.xinxingnongcunhezuoyiliao" name="xinxingnongcunhezuoyiliao">新型农村合作医疗</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.pinkunjiuzhu" name="pinkunjiuzhu">贫困救助</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.shangyeyiliaobaoxian" name="shangyeyiliaobaoxian">商业医疗保险</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.quangongfei" name="quangongfei">全公费</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.quanzifei" name="quanzifei">全自费</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.qitazhifufangshi" name="qitazhifufangshi">其他</label>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">药物过敏史</p></td>
+      <td style="width:241pt;" colspan="3">
+        <label nz-checkbox [(ngModel)]="basicInfo.wuyaowuguominshi" name="wuyaowuguominshi">无</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.qingmeisu" name="qingmeisu">青霉素</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.huangan" name="huangan">磺胺</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.lianmeisu" name="lianmeisu">链霉素</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.qitaguominshi" name="qitaguominshi">其他</label>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">暴露史</p></td>
+      <td style="width:174pt;" colspan="3">
+        <label nz-checkbox [(ngModel)]="basicInfo.wubaoloushi" name="wubaoloushi">无</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.huaxuepin" name="huaxuepin">化学品</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.duwu" name="duwu">毒物</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.shexian" name="shexian">射线</label>
+      </td>
+    </tr>
+    <tr style="height:72pt">
+      <td style="width:22pt;"
+          rowspan="4"><p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1 shu" style="text-align: center;">既 往 史</p></td>
+      <td style="width:42pt;">
+        <p style="text-indent: 0pt;text-align: left;"><br/></p>
+        <p class="s1" style="text-align: center;">疾病</p></td>
+      <td style="width:409pt;" colspan="2">
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingwu" name="jibingwu">无</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibinggaoxueya" name="jibinggaoxueya">高血压</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.gaoxueyaquezhenshijian" name="gaoxueyaquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingtangniaobing" name="jibingtangniaobing">糖尿病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.tangniaobingquezhenshijian" name="tangniaobingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingguanxinbing" name="jibingguanxinbing">冠心病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.guanxinbingquezhenshijian" name="guanxinbingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingmanxingzusexingfeijibing" name="jibingmanxingzusexingfeijibing">慢性阻塞性肺疾病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.manxingzusexingfeijibingquezhenshijian" name="manxingzusexingfeijibingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingexingzhongliu" name="jibingexingzhongliu">恶性肿瘤</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.exingzhongliuquezhenshijian" name="exingzhongliuquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingnaocuzhong" name="jibingnaocuzhong">脑卒中</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.naocuzhongquezhenshijian" name="naocuzhongquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingyanzhongjingshenzhangai" name="jibingyanzhongjingshenzhangai">严重精神障碍</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.yanzhongjingshenzhangaiquezhenshijian" name="yanzhongjingshenzhangaiquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingjiehebing" name="jibingjiehebing">结核病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.jiehebingquezhenshijian" name="jiehebingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingganyan" name="jibingganyan"> 肝炎</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.ganyanquezhenshijian" name="ganyanquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingqitafadingchuanranbing" name="jibingqitafadingchuanranbing"> 其他法定传染病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.qitafadingchuanranbingquezhenshijian" name="qitafadingchuanranbingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingzhiyebing" name="jibingzhiyebing"> 职业病</label>
+        确诊时间
+        <nz-date-picker [(ngModel)]="basicInfo.zhiyebingquezhenshijian" name="zhiyebingquezhenshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        <br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.jibingqita" name="jibingqita"> 其他</label><br/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:42pt;">
+        <p class="s1" style="text-align: center;">手术</p></td>
+      <td style="width:409pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.shoushu" name="shoushu">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        <br/>
+        时间
+        <nz-date-picker [(ngModel)]="basicInfo.shoushushijian" name="shoushushijian" [nzFormat]="dateFormat"></nz-date-picker>
+        /名称<input style="width: 150pt;" [(ngModel)]="basicInfo.shoushumingcheng" name="shoushumingcheng"/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:42pt;">
+        <p class="s1" style="text-align: center;">外伤</p></td>
+      <td style="width:409pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.waishang" name="waishang">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        <br/>
+        时间
+        <nz-date-picker [(ngModel)]="basicInfo.waishangshijian" name="waishangshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        /名称<input style="width: 150pt;" [(ngModel)]="basicInfo.waishangmingcheng" name="waishangmingcheng"/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:42pt;">
+        <p class="s1" style="text-align: center;">输血</p></td>
+      <td style="width:409pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.shuxie" name="shuxie">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+        <br/>
+        时间
+        <nz-date-picker [(ngModel)]="basicInfo.shuxieshijian" name="shuxieshijian" [nzFormat]="dateFormat"></nz-date-picker>
+        /名称<input style="width: 150pt;" [(ngModel)]="basicInfo.shuxieyuanyin" name="shuxieyuanyin"/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <!--<td style="width:64pt;" rowspan="2">-->
+      <!--<p class="s1 shu" style="text-align: center;">家 族 史</p></td>-->
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">父 亲</p></td>
+      <td style="width:127pt;">
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiwu" name="fuqinjiazushiwu">无</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushigaoxueya" name="fuqinjiazushigaoxueya">高血压</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushitangniaobing" name="fuqinjiazushitangniaobing">糖尿病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiguanxinbing" name="fuqinjiazushiguanxinbing">冠心病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushimanxingzusexingfeijibing" name="fuqinjiazushimanxingzusexingfeijibing">慢性阻塞性肺疾病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiexingzhongliu" name="fuqinjiazushiexingzhongliu">恶性肿瘤</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushinaocuzhong" name="fuqinjiazushinaocuzhong">脑卒中</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiyanzhongjingshenzhangai" name="fuqinjiazushiyanzhongjingshenzhangai">严重精神障碍</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushifeijiehe" name="fuqinjiazushifeijiehe">结核病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiganyan" name="fuqinjiazushiganyan">肝炎</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushixiantianjixing" name="fuqinjiazushixiantianjixing">先天畸形</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.fuqinjiazushiqita" name="fuqinjiazushiqita">其他</label><br/>
+      </td>
+      <td style="width:72pt;"><p class="s1" style="text-align: center;">母 亲</p></td>
+      <td style="width:132pt;">
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiwu" name="muqinjiazushiwu">无</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushigaoxueya" name="muqinjiazushigaoxueya">高血压</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushitangniaobing" name="muqinjiazushitangniaobing">糖尿病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiguanxinbing" name="muqinjiazushiguanxinbing">冠心病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushimanxingzusexingfeijibing" name="muqinjiazushimanxingzusexingfeijibing">慢性阻塞性肺疾病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiexingzhongliu" name="muqinjiazushiexingzhongliu">恶性肿瘤</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushinaocuzhong" name="muqinjiazushinaocuzhong">脑卒中</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiyanzhongjingshenzhangai" name="muqinjiazushiyanzhongjingshenzhangai">严重精神障碍</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushifeijiehe" name="muqinjiazushifeijiehe">结核病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiganyan" name="muqinjiazushiganyan">肝炎</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushixiantianjixing" name="muqinjiazushixiantianjixing">先天畸形</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.muqinjiazushiqita" name="muqinjiazushiqita">其他</label><br/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">兄弟姐妹</p></td>
+      <td style="width:127pt;">
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiwu" name="xiongdijiemeijiazushiwu">无</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushigaoxueya" name="xiongdijiemeijiazushigaoxueya">高血压</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushitangniaobing" name="xiongdijiemeijiazushitangniaobing">糖尿病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiguanxinbing" name="xiongdijiemeijiazushiguanxinbing">冠心病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushimanxingzusexingfeijibing" name="xiongdijiemeijiazushimanxingzusexingfeijibing">慢性阻塞性肺疾病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiexingzhongliu" name="xiongdijiemeijiazushiexingzhongliu">恶性肿瘤</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushinaocuzhong" name="xiongdijiemeijiazushinaocuzhong">脑卒中</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiyanzhongjingshenzhangai" name="xiongdijiemeijiazushiyanzhongjingshenzhangai">严重精神障碍</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushifeijiehe" name="xiongdijiemeijiazushifeijiehe">结核病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiganyan" name="xiongdijiemeijiazushiganyan">肝炎</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushixiantianjixing" name="xiongdijiemeijiazushixiantianjixing">先天畸形</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.xiongdijiemeijiazushiqita" name="xiongdijiemeijiazushiqita">其他</label><br/>
+      </td>
+      <td style="width:72pt;"><p class="s1" style="text-align: center;">子 女</p></td>
+      <td style="width:132pt;">
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiwu" name="zinvjiazushiwu">无</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushigaoxueya" name="zinvjiazushigaoxueya">高血压</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushitangniaobing" name="zinvjiazushitangniaobing">糖尿病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiguanxinbing" name="zinvjiazushiguanxinbing">冠心病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushimanxingzusexingfeijibing" name="zinvjiazushimanxingzusexingfeijibing">慢性阻塞性肺疾病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiexingzhongliu" name="zinvjiazushiexingzhongliu">恶性肿瘤</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushinaocuzhong" name="zinvjiazushinaocuzhong">脑卒中</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiyanzhongjingshenzhangai" name="zinvjiazushiyanzhongjingshenzhangai">严重精神障碍</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushifeijiehe" name="zinvjiazushifeijiehe">结核病</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiganyan" name="zinvjiazushiganyan">肝炎</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushixiantianjixing" name="zinvjiazushixiantianjixing">先天畸形</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.zinvjiazushiqita" name="zinvjiazushiqita">其他</label><br/>
+      </td>
+    </tr>
+    <tr style="height:21pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">遗传病史</p></td>
+      <td style="width:409pt;" colspan="3">
+        <nz-radio-group [(ngModel)]="basicInfo.yichuanbingshi" name="yichuanbingshi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="有">有</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:34pt">
+      <td style="width:64pt;">
+        <p class="s1" style="text-align: center;">残疾情况</p></td>
+      <td style="width:277pt;" colspan="3">
+        <label nz-checkbox [(ngModel)]="basicInfo.wucanji" name="wucanji">无残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.shilicanji" name="shilicanji">视力残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.tinglicanji" name="tinglicanji">听力残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.yanyucanji" name="yanyucanji">言语残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.zhiticanji" name="zhiticanji">肢体残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.zhilicanji" name="zhilicanji">智力残疾</label>
+        <label nz-checkbox [(ngModel)]="basicInfo.jingshencanji" name="jingshencanji">精神残疾</label><br/>
+        <label nz-checkbox [(ngModel)]="basicInfo.qitacanji" name="qitacanji">其他残疾</label>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:64pt;" rowspan="5">
+        <p class="s1 shu" style="text-align: center;">生活环境*</p></td>
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">厨房排风设施</p></td>
+      <td style="width:199pt;" colspan="2">
+        <nz-radio-group [(ngModel)]="basicInfo.chufangpaifengsheshi" name="chufangpaifengsheshi">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="油烟机">油烟机</label>
+          <label nz-radio nzValue="换气扇">换气扇</label>
+          <label nz-radio nzValue="烟囱">烟囱</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">燃料类型</p></td>
+      <td style="width:331pt;" colspan="2">
+        <nz-radio-group [(ngModel)]="basicInfo.ranliaoleixing" name="ranliaoleixing">
+          <label nz-radio nzValue="液化气">液化气</label>
+          <label nz-radio nzValue="煤">煤</label>
+          <label nz-radio nzValue="天然气">天然气</label>
+          <label nz-radio nzValue="沼气">沼气</label>
+          <label nz-radio nzValue="柴火">柴火</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">饮水</p></td>
+      <td style="width:331pt;" colspan="2">
+        <nz-radio-group [(ngModel)]="basicInfo.yinshui" name="yinshui">
+          <label nz-radio nzValue="自来水">自来水</label>
+          <label nz-radio nzValue="经净化过滤的水">经净化过滤的水</label>
+          <label nz-radio nzValue="井水">井水</label>
+          <label nz-radio nzValue="河湖水">河湖水</label>
+          <label nz-radio nzValue="塘水">塘水</label>
+          <label nz-radio nzValue="其他">其他</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">厕所</p></td>
+      <td style="width:331pt;" colspan="2">
+        <nz-radio-group [(ngModel)]="basicInfo.cesuo" name="cesuo">
+          <label nz-radio nzValue="卫生厕所">卫生厕所</label>
+          <label nz-radio nzValue="一格或二格粪池式">一格或二格粪池式</label>
+          <label nz-radio nzValue="马桶">马桶</label>
+          <label nz-radio nzValue="露天粪坑">露天粪坑</label>
+          <label nz-radio nzValue="简易棚厕">简易棚厕</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+    <tr style="height:19pt">
+      <td style="width:78pt;">
+        <p class="s1" style="text-align: center;">禽畜栏</p></td>
+      <td style="width:199pt;" colspan="2">
+        <nz-radio-group [(ngModel)]="basicInfo.qinchulan" name="qinchulan">
+          <label nz-radio nzValue="无">无</label>
+          <label nz-radio nzValue="单设">单设</label>
+          <label nz-radio nzValue="室内">室内</label>
+          <label nz-radio nzValue="室外">室外</label>
+        </nz-radio-group>
+      </td>
+    </tr>
+  </table>
+  <div class="modal-footer">
+    <button type="button" nz-button m="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" [nzType]="'primary'">保存</button>
+  </div>
+</form>
+</body>

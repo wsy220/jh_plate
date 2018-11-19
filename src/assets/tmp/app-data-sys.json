@@ -1,0 +1,117 @@
+{
+  "app": {
+    "name": "柒拾佳护健康管理",
+    "description": "70 柒拾 柒拾佳护 健康管理 健康"
+  },
+  "user": {
+    "name": "Admin",
+    "avatar": "./assets/tmp/img/avatar.jpg",
+    "email": "cipchk@qq.com"
+  },
+  "menu": [
+    {
+      "text": "主导航",
+      "i18n": "main_navigation",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "首页",
+          "i18n": "dashboard_v1",
+          "link": "/dashboard/v1",
+          "icon": "anticon antanticon anticon-appstore"
+        },
+        {
+          "text": "快捷菜单",
+          "i18n": "shortcut",
+          "icon": "anticon antanticon anticon-rocket",
+          "shortcutRoot": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "系统管理",
+      "i18n": "sys-mng",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "权限管理",
+          "i18n": "role-mng-all",
+          "icon": "anticon antanticon anticon-dashboard",
+          "children": [
+            {
+              "text": "user-mng",
+              "link": "/sys-ass/user",
+              "i18n": "user-mng",
+              "reuse": false
+            },
+            {
+              "text": "role-mng",
+              "link": "/sys-ass/role",
+              "i18n": "role-mng"
+            },
+            {
+              "text": "menu-mng",
+              "link": "/sys-ass/menu",
+              "i18n": "menu-mng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "知识管理",
+      "i18n": "zs-mng",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "文档管理",
+          "i18n": "doc-mng",
+          "icon": "anticon antanticon anticon-file-ppt",
+          "children": [
+            {
+              "text": "药品管理",
+              "link": "/doc-ass/yp-mng",
+              "i18n": "yp-mng"
+            },
+            {
+              "text": "症状自诊",
+              "link": "/doc-ass/zz-mng",
+              "i18n": "zz-mng"
+            },
+            {
+              "text": "疾病管理",
+              "link": "/doc-ass/jb-mng",
+              "i18n": "jb-mng"
+            },
+            {
+              "text": "育儿管理",
+              "link": "/doc-ass/ye-mng",
+              "i18n": "ye-mng"
+            },
+            {
+              "text": "孕期管理",
+              "link": "/doc-ass/yq-mng",
+              "i18n": "yq-mng"
+            }
+          ]
+        },
+        {
+          "text": "统计数据",
+          "i18n": "statistics",
+          "icon": "anticon antanticon anticon-file-ppt",
+          "children": [
+            {
+              "text": "医护签到统计",
+              "link": "/statistics/collectionInfo-mng",
+              "i18n": "collectionInfo-mng"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

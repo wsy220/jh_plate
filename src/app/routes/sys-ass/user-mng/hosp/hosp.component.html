@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <div class="modal-title">{{i._id? '编辑' : '添加'}}角色</div>
+</div>
+
+
+<nz-transfer
+  [nzDataSource]="list"
+  [nzTitles]="['全部医院', '已选医院']"
+  [nzListStyle]="{'width.px': 200, 'height.px': 300}"
+  (nzSelectChange)="select($event)"
+  (nzChange)="change($event)">
+</nz-transfer>
+
+
+<div class="modal-footer">
+  <button nz-button type="button" (click)="close()">关闭</button>
+  <button nz-button [nzType]="'primary'" (click)="save()">保存
+  </button>
+</div>
+
